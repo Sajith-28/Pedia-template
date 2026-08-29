@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { AppointmentForm } from "./AppointmentForm";
 
 export function Appointment() {
   return (
@@ -19,13 +18,45 @@ export function Appointment() {
           eyebrow="Appointments"
           title="Book a consultation."
           titleId="appointment-title"
-          description={`Send a request and the clinic will call you back to confirm a time with ${doctor.name}.`}
+          description={`Reach out on WhatsApp and we'll schedule your child's visit with ${doctor.name}.`}
           className="max-w-2xl"
         />
 
         <div className="mt-14 grid gap-6 lg:mt-18 lg:grid-cols-[1.5fr_1fr] lg:items-start lg:gap-8">
+          {/* ---------- WhatsApp booking card ---------- */}
           <Reveal distance={20}>
-            <AppointmentForm />
+            <div className="rounded-panel bg-surface p-8 ring-1 ring-line sm:p-10 lg:p-12">
+              <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
+                <span className="grid h-16 w-16 place-items-center rounded-2xl bg-[#25D366]/10 text-[#25D366]">
+                  <Icon name="whatsapp" className="h-8 w-8" />
+                </span>
+
+                <h3 className="mt-6 font-display text-[1.5rem] font-bold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[1.75rem]">
+                  Message us on WhatsApp
+                </h3>
+
+                <p className="mt-3 max-w-md text-[1.0625rem] leading-[1.72] text-ink-muted">
+                  Tap the button below to open WhatsApp. Let us know your
+                  preferred date, time and a brief reason for the visit — we'll
+                  confirm the slot right away.
+                </p>
+
+                <ButtonLink
+                  href={clinic.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  className="mt-8 w-full bg-[#25D366] text-white shadow-soft hover:bg-[#1DA851] hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0 active:shadow-soft sm:w-auto"
+                >
+                  <Icon name="whatsapp" className="h-5 w-5" />
+                  Book via WhatsApp
+                </ButtonLink>
+
+                <p className="mt-4 text-[0.8125rem] text-ink-soft">
+                  We typically respond within 15 minutes during consultation hours.
+                </p>
+              </div>
+            </div>
           </Reveal>
 
           <aside className="flex flex-col gap-6">

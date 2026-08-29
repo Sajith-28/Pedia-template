@@ -58,12 +58,14 @@ export function Hero() {
 
             <Reveal delay={640}>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <ButtonLink href="#appointment" size="lg">
-                  Book an Appointment
-                  <Icon
-                    name="arrowRight"
-                    className="h-4 w-4 transition-transform duration-300 ease-premium group-hover:translate-x-1"
-                  />
+                <ButtonLink
+                  href={clinic.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                >
+                  <Icon name="whatsapp" className="h-5 w-5" />
+                  Book via WhatsApp
                 </ButtonLink>
                 <ButtonLink href="#about" variant="secondary" size="lg">
                   View Doctor Profile

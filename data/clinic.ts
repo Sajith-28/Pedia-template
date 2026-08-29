@@ -27,6 +27,17 @@ export const clinic = {
     href: "tel:+919000000000",
   },
 
+  whatsapp: {
+    /** International format without + or spaces, as required by wa.me links. */
+    number: "919000000000",
+    /** Pre-filled greeting the patient sees in their WhatsApp chat box. */
+    message:
+      "Hi, I'd like to book an appointment at Little Bloom Children's Clinic.",
+    get href() {
+      return `https://wa.me/${this.number}?text=${encodeURIComponent(this.message)}`;
+    },
+  },
+
   email: {
     display: "care@littlebloomclinic.in",
     href: "mailto:care@littlebloomclinic.in",

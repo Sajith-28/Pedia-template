@@ -123,7 +123,14 @@ export function Header() {
                 Call
               </ButtonLink>
 
-              <ButtonLink href="#appointment" size="sm" className="max-sm:hidden">
+              <ButtonLink
+                href={clinic.whatsapp.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="sm"
+                className="max-sm:hidden"
+              >
+                <Icon name="whatsapp" className="h-4 w-4" />
                 Book Appointment
               </ButtonLink>
 

@@ -40,12 +40,15 @@ export function FinalCta() {
               </p>
 
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                <ButtonLink href="#appointment" size="lg" className="w-full sm:w-auto">
-                  Book an Appointment
-                  <Icon
-                    name="arrowRight"
-                    className="h-4 w-4 transition-transform duration-300 ease-premium group-hover:translate-x-1"
-                  />
+                <ButtonLink
+                  href={clinic.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  <Icon name="whatsapp" className="h-5 w-5" />
+                  Book via WhatsApp
                 </ButtonLink>
                 <ButtonLink
                   href={clinic.phone.href}
