@@ -123,16 +123,15 @@ export function Header() {
                 Call
               </ButtonLink>
 
-              <ButtonLink
+              <a
                 href={clinic.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                size="sm"
-                className="max-sm:hidden"
+                className="max-sm:hidden inline-flex select-none items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-[#1DA851] hover:-translate-y-0.5 hover:shadow-lift"
               >
                 <Icon name="whatsapp" className="h-4 w-4" />
-                Book Appointment
-              </ButtonLink>
+                Book via WhatsApp
+              </a>
 
               <button
                 type="button"

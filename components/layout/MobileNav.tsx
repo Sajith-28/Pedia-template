@@ -188,17 +188,16 @@ export function MobileNav({ open, onClose, activeSection }: Props) {
 
         <div className="shrink-0 border-t border-line bg-surface/60 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-8">
           <div className="flex flex-col gap-3">
-            <ButtonLink
+            <a
               href={clinic.whatsapp.href}
               target="_blank"
               rel="noopener noreferrer"
               onClick={onClose}
-              size="lg"
-              className="w-full"
+              className="inline-flex select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-soft transition-all duration-300 hover:bg-[#1DA851] w-full"
             >
               <Icon name="whatsapp" className="h-5 w-5" />
               Book via WhatsApp
-            </ButtonLink>
+            </a>
             <ButtonLink
               href={clinic.phone.href}
               variant="secondary"

@@ -18,13 +18,14 @@ export function Hero() {
           {/* ---------- Copy ---------- */}
           <div className="order-2 lg:order-1">
             <Reveal>
-              <p className="text-eyebrow flex items-center gap-3 text-brand-600">
-                <span
-                  aria-hidden="true"
-                  className="h-px w-7 bg-gradient-to-r from-coral-500 to-brand-400"
-                />
-                {doctor.eyebrow}
-              </p>
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-1.5 ring-1 ring-brand-200 shadow-soft">
+                <span className="grid h-5 w-5 place-items-center rounded-full bg-coral-100 text-coral-600">
+                  <Icon name="spark" className="h-3 w-3 animate-pulse" />
+                </span>
+                <span className="text-[0.8125rem] font-semibold tracking-tight text-brand-900">
+                  {doctor.eyebrow} &bull; Children First Always
+                </span>
+              </div>
             </Reveal>
 
             {/* Word-by-word entrance — the one place on the page that earns it. */}

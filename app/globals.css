@@ -93,12 +93,18 @@
   /* ---------- Motion ---------- */
   --animate-float-slow: float-soft 7s var(--ease-gentle) infinite;
   --animate-float-slower: float-soft 9s var(--ease-gentle) infinite;
+  --animate-float-bob: float-bob 4.5s ease-in-out infinite;
   --animate-drift-a: drift-a 26s var(--ease-gentle) infinite;
   --animate-drift-b: drift-b 32s var(--ease-gentle) infinite;
   --animate-pan: gradient-pan 18s var(--ease-gentle) infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 2.5s ease-in-out infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ---------- Elevation: low-opacity, wide, never heavy ---------- */
   --shadow-soft: 0 1px 2px rgb(19 32 42 / 0.04),
@@ -109,6 +115,8 @@
     0 18px 38px -20px rgb(19 32 42 / 0.26);
   --shadow-panel: 0 1px 3px rgb(19 32 42 / 0.04),
     0 44px 84px -48px rgb(19 32 42 / 0.34);
+  --shadow-playful: 0 8px 24px -6px rgba(224, 113, 77, 0.22),
+    0 2px 6px rgba(19, 32, 42, 0.04);
 
   /* ---------- Radii ---------- */
   --radius-card: 1.125rem;
@@ -128,6 +136,69 @@
   }
   50% {
     transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes float-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(2.5deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(3deg) translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-6deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(-3deg);
+  }
+  80% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.85;
   }
 }
 

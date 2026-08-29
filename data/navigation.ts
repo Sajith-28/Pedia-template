@@ -7,18 +7,20 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "#home", sectionId: "home" },
+  { label: "Child Care", href: "#child-friendly", sectionId: "child-friendly" },
   { label: "About Doctor", href: "#about", sectionId: "about" },
   { label: "Expertise", href: "#expertise", sectionId: "expertise" },
-  { label: "Experience", href: "#experience", sectionId: "experience" },
+  { label: "Milestones", href: "#milestones", sectionId: "milestones" },
   { label: "Clinic", href: "#clinic", sectionId: "clinic" },
   { label: "FAQs", href: "#faqs", sectionId: "faqs" },
 ];
 
 export const footerLinks: NavLink[] = [
   { label: "Home", href: "#home", sectionId: "home" },
-  { label: "About", href: "#about", sectionId: "about" },
-  { label: "Expertise", href: "#expertise", sectionId: "expertise" },
-  { label: "Experience", href: "#experience", sectionId: "experience" },
-  { label: "Clinic", href: "#clinic", sectionId: "clinic" },
+  { label: "Child-Friendly Care", href: "#child-friendly", sectionId: "child-friendly" },
+  { label: "About Doctor", href: "#about", sectionId: "about" },
+  { label: "Pediatric Services", href: "#expertise", sectionId: "expertise" },
+  { label: "Milestone Guide", href: "#milestones", sectionId: "milestones" },
+  { label: "Clinic Location", href: "#clinic", sectionId: "clinic" },
   { label: "FAQs", href: "#faqs", sectionId: "faqs" },
 ];
