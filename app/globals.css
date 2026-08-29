@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+@source "../app";
+@source "../components";
+@source "../data";
+@source "../lib";
+
+/* =========================================================================
+   DESIGN TOKENS
+   A restrained healthcare system: warm white canvas, deep medical blue,
+   soft teal accent, deep charcoal ink. Colour is used sparingly.
+   ========================================================================= */
+@theme {
+  /* ---------- Typography ---------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+
+  /* ---------- Surfaces ---------- */
+  --color-canvas: #faf9f6;
+  --color-canvas-soft: #f4f3ef;
+  --color-surface: #ffffff;
+
+  /* ---------- Ink ---------- */
+  --color-ink: #13202a;
+  --color-ink-muted: #55666f;
+  --color-ink-soft: #5f6e78;
+
+  /* ---------- Brand: deep medical blue ---------- */
+  --color-brand-50: #f2f7fa;
+  --color-brand-100: #e0edf3;
+  --color-brand-200: #c2dbe7;
+  --color-brand-300: #94bfd3;
+  --color-brand-400: #5f9db8;
+  --color-brand-500: #3b7f9d;
+  --color-brand-600: #2b6784;
+  --color-brand-700: #1e5069;
+  --color-brand-800: #164055;
+  --color-brand-900: #113244;
+  --color-brand-950: #0a2130;
+
+  /* ---------- Accent: soft teal ---------- */
+  --color-teal-*: initial;
+  --color-teal-50: #eff8f6;
+  --color-teal-100: #d9efeb;
+  --color-teal-200: #b3ded8;
+  --color-teal-300: #83c6be;
+  --color-teal-400: #55aaa1;
+  --color-teal-500: #3a8f87;
+  --color-teal-600: #2c736d;
+  --color-teal-700: #245c58;
+
+  /* ---------- Pediatric accents ----------
+     Desaturated on purpose: these carry warmth and variety without tipping
+     the page into a children's-cartoon palette. Used on icon chips, numbers
+     and hover states — never as large fills. */
+  --color-coral-50: #fdf0ec;
+  --color-coral-100: #fadfd5;
+  --color-coral-200: #f4c3b2;
+  --color-coral-500: #e0714d;
+  --color-coral-600: #c65c3a;
+
+  --color-honey-50: #fdf6e7;
+  --color-honey-100: #f8e8c2;
+  --color-honey-200: #f0d494;
+  --color-honey-500: #cf9a26;
+  --color-honey-600: #b0811b;
+
+  --color-mint-50: #eaf6ef;
+  --color-mint-100: #cdead9;
+  --color-mint-200: #a6d8bc;
+  --color-mint-500: #429c72;
+  --color-mint-600: #337f5c;
+
+  --color-lilac-50: #f2effa;
+  --color-lilac-100: #e0d9f3;
+  --color-lilac-200: #c8bce8;
+  --color-lilac-500: #7867c0;
+  --color-lilac-600: #6452a6;
+
+  /* ---------- Status ---------- */
+  --color-danger: #b3261e;
+  --color-danger-soft: #fdf4f3;
+  --color-notice: #9a6f1c;
+  --color-notice-soft: #fdfaf2;
+  --color-notice-line: #eee1c6;
+
+  /* ---------- Hairlines ---------- */
+  --color-line: #e7e4dd;
+  --color-line-strong: #d8d4cb;
+
+  /* ---------- Motion ---------- */
+  --animate-float-slow: float-soft 7s var(--ease-gentle) infinite;
+  --animate-float-slower: float-soft 9s var(--ease-gentle) infinite;
+  --animate-drift-a: drift-a 26s var(--ease-gentle) infinite;
+  --animate-drift-b: drift-b 32s var(--ease-gentle) infinite;
+  --animate-pan: gradient-pan 18s var(--ease-gentle) infinite;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Elevation: low-opacity, wide, never heavy ---------- */
+  --shadow-soft: 0 1px 2px rgb(19 32 42 / 0.04),
+    0 12px 32px -20px rgb(19 32 42 / 0.22);
+  --shadow-lift: 0 2px 6px rgb(19 32 42 / 0.05),
+    0 26px 52px -28px rgb(19 32 42 / 0.3);
+  --shadow-float: 0 1px 2px rgb(19 32 42 / 0.05),
+    0 18px 38px -20px rgb(19 32 42 / 0.26);
+  --shadow-panel: 0 1px 3px rgb(19 32 42 / 0.04),
+    0 44px 84px -48px rgb(19 32 42 / 0.34);
+
+  /* ---------- Radii ---------- */
+  --radius-card: 1.125rem;
+  --radius-panel: 1.5rem;
+  --radius-frame: 2rem;
+}
+
+/* =========================================================================
+   KEYFRAMES
+   All transform/opacity only, so they stay on the compositor.
+   The reduced-motion block at the end of this file collapses them.
+   ========================================================================= */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, -4%, 0) scale(1.07);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, 3%, 0) scale(1.09);
+  }
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* =========================================================================
+   BASE
+   ========================================================================= */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    /* Colour is inherited on purpose — headings sit on dark panels too. */
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Sticky header offset for in-page anchors. */
+  [id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-brand-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  /* Inputs inherit the type system rather than the UA default. */
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+/* =========================================================================
+   MOTION PRIMITIVES
+   Scroll reveals are opt-in via [data-reveal]. The hidden state is scoped to
+   `.js` (set by an inline script) so the page renders fully without JS.
+   Only opacity + transform are animated.
+   ========================================================================= */
+@layer components {
+  [data-reveal] {
+    transition:
+      opacity 720ms var(--ease-premium),
+      transform 720ms var(--ease-premium);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal="hidden"] {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-y, 22px), 0);
+    will-change: opacity, transform;
+  }
+
+  .js [data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Accordion: grid-rows 0fr -> 1fr is the only reliable "auto height" tween. */
+  .accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 520ms var(--ease-premium);
+  }
+
+  .accordion-panel[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion-panel > .accordion-panel-inner {
+    overflow: hidden;
+    /* Keeps collapsed answers out of the accessibility tree and tab order. */
+    visibility: hidden;
+    transition: visibility 520ms var(--ease-premium);
+  }
+
+  .accordion-panel[data-open="true"] > .accordion-panel-inner {
+    visibility: visible;
+  }
+
+  /* Animated underline for text links. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 420ms var(--ease-premium);
+  }
+
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal="hidden"] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  [data-reveal],
+  .accordion-panel,
+  .link-underline {
+    transition-duration: 1ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
