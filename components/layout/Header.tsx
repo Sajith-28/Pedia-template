@@ -54,10 +54,10 @@ export function Header() {
 
       <header
         className={cx(
-          "fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-premium",
+          "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-premium",
           scrolled
-            ? "bg-canvas/80 shadow-[inset_0_-1px_0_var(--color-line)] backdrop-blur-xl backdrop-saturate-150"
-            : "bg-transparent",
+            ? "bg-canvas/90 shadow-[inset_0_-1px_0_var(--color-line)] backdrop-blur-xl backdrop-saturate-150"
+            : "bg-canvas/40 backdrop-blur-sm",
         )}
       >
         <Container>

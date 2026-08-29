@@ -236,38 +236,38 @@ export function PediatricDoodlesBackdrop({
 }) {
   return (
     <div aria-hidden="true" className={cx("pointer-events-none absolute inset-0 overflow-hidden select-none", className)}>
-      {/* Floating Cloud Top Left */}
-      <div className="absolute -top-4 left-[3%] animate-float-slow opacity-60 sm:opacity-85">
-        <SmilingCloud className="h-14 w-20 drop-shadow-sm transition-transform duration-700 hover:scale-125" />
+      {/* Floating Cloud - positioned comfortably below header */}
+      <div className="absolute top-28 left-[2%] sm:top-36 sm:left-[3%] animate-float-slow opacity-60 sm:opacity-85">
+        <SmilingCloud className="h-12 w-16 sm:h-14 sm:w-20 drop-shadow-sm transition-transform duration-700 hover:scale-125" />
       </div>
 
-      {/* Floating Smiling Sun Top Right */}
-      <div className="absolute top-6 right-[4%] animate-sway opacity-70 sm:opacity-90">
-        <SmilingSun className="h-12 w-12 drop-shadow-sm" />
+      {/* Floating Smiling Sun - positioned comfortably below header */}
+      <div className="absolute top-28 right-[3%] sm:top-36 sm:right-[4%] animate-sway opacity-70 sm:opacity-90">
+        <SmilingSun className="h-10 w-10 sm:h-12 sm:w-12 drop-shadow-sm" />
       </div>
 
       {/* Little Twinkling Stars */}
-      <div className="absolute top-[18%] left-[18%] text-honey-500 animate-twinkle opacity-75">
+      <div className="absolute top-[26%] left-[16%] text-honey-500 animate-twinkle opacity-75">
         <TwinklingStar className="h-5 w-5" />
       </div>
 
-      <div className="absolute top-[35%] right-[14%] text-coral-500 animate-twinkle opacity-70 [animation-delay:1.2s]">
+      <div className="absolute top-[38%] right-[12%] text-coral-500 animate-twinkle opacity-70 [animation-delay:1.2s]">
         <TwinklingStar className="h-4 w-4" />
       </div>
 
-      <div className="absolute bottom-[22%] left-[8%] text-teal-400 animate-twinkle opacity-65 [animation-delay:2.1s]">
+      <div className="absolute bottom-[20%] left-[8%] text-teal-400 animate-twinkle opacity-65 [animation-delay:2.1s]">
         <TwinklingStar className="h-6 w-6" />
       </div>
 
       {density !== "light" && (
         <>
           {/* Cute Teddy Bear floating left-mid */}
-          <div className="hidden sm:block absolute top-[52%] -left-2 animate-float-bob opacity-85">
+          <div className="hidden sm:block absolute top-[54%] -left-2 animate-float-bob opacity-85">
             <TeddyBear className="h-14 w-14 drop-shadow-sm" />
           </div>
 
           {/* Toy Blocks floating right-mid */}
-          <div className="hidden sm:block absolute top-[44%] right-[2%] animate-sway opacity-85 [animation-delay:0.8s]">
+          <div className="hidden sm:block absolute top-[48%] right-[2%] animate-sway opacity-85 [animation-delay:0.8s]">
             <ToyBlocks className="h-13 w-13 drop-shadow-sm" />
           </div>
 
@@ -286,11 +286,11 @@ export function PediatricDoodlesBackdrop({
       {density === "full" && (
         <>
           {/* Hot Air Balloon */}
-          <div className="hidden lg:block absolute top-[14%] right-[26%] animate-float-slower opacity-80">
-            <HotAirBalloon className="h-14 w-12 drop-shadow-sm" />
+          <div className="hidden lg:block absolute top-[22%] right-[24%] animate-float-slower opacity-80">
+            <HotAirBalloon className="h-13 w-11 drop-shadow-sm" />
           </div>
           {/* Stethoscope Heart */}
-          <div className="hidden lg:block absolute bottom-[30%] right-[28%] animate-sway opacity-75">
+          <div className="hidden lg:block absolute bottom-[32%] right-[26%] animate-sway opacity-75">
             <StethoscopeHeart className="h-12 w-12 drop-shadow-sm" />
           </div>
         </>
