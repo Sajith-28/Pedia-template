@@ -9,6 +9,10 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  AnimatedBabyRattle,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 import { accents } from "@/lib/accents";
 import { cx } from "@/lib/utils";
 
@@ -89,11 +93,21 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-title"
-      className="relative overflow-hidden bg-[var(--color-pedia-blue-light,#EAF6FB)] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#EBF6FB] via-[#F2F8FD] to-[#E9F4FB] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-drift-b absolute -left-[8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
         <div className="animate-drift-a absolute -right-[8%] bottom-[6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
+
+        {/* Live moving Baby Rattle toy in testimonials */}
+        <div className="hidden lg:block absolute top-12 right-[4%] opacity-85">
+          <AnimatedBabyRattle className="h-16 w-14" />
+        </div>
+
+        {/* Live moving Pastel Bubbles */}
+        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-70">
+          <AnimatedPastelBubbles className="h-14 w-14" />
+        </div>
       </div>
 
       <Container className="relative">

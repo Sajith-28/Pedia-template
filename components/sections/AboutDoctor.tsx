@@ -4,13 +4,37 @@ import { DoctorPortrait } from "@/components/ui/DoctorPortrait";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  AnimatedRockingHorse,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 
 const [firstParagraph, ...restParagraphs] = doctor.bio;
 
 export function AboutDoctor() {
   return (
-    <section id="about" aria-labelledby="about-title" className="bg-canvas py-24 sm:py-28 lg:py-36">
-      <Container>
+    <section
+      id="about"
+      aria-labelledby="about-title"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF2F8] py-24 sm:py-28 lg:py-36 border-b border-rose-100/70"
+    >
+      {/* Ambient pastel glow & live moving toys */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="animate-drift-a absolute -top-16 -left-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-mid,#F9E1EC)_0%,transparent_70%)] opacity-70 blur-2xl" />
+        <div className="animate-drift-b absolute bottom-8 -right-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_70%)] opacity-60 blur-2xl" />
+
+        {/* Live moving Rocking Horse floating on upper right */}
+        <div className="hidden xl:block absolute top-16 right-[3%] opacity-85">
+          <AnimatedRockingHorse className="h-16 w-20" />
+        </div>
+
+        {/* Live moving Pastel Bubbles */}
+        <div className="hidden md:block absolute bottom-20 left-[2%] opacity-70">
+          <AnimatedPastelBubbles className="h-14 w-14" />
+        </div>
+      </div>
+
+      <Container className="relative">
         <SectionHeading
           eyebrow="About the doctor"
           title={`Meet ${doctor.name}`}

@@ -8,6 +8,10 @@ import { Field, borderFor, fieldControl, fieldHeight } from "@/components/ui/Fie
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  AnimatedToyBlocks,
+  AnimatedTeddyBear,
+} from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 type FormValues = {
@@ -141,11 +145,16 @@ export function Appointment() {
     <section
       id="appointment"
       aria-labelledby="appointment-title"
-      className="relative overflow-hidden bg-[var(--color-pedia-blue-light,#EAF6FB)] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF0F6] py-24 sm:py-28 lg:py-36 border-t border-rose-100/80"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
         <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
+
+        {/* Live moving Teddy Bear on top right */}
+        <div className="hidden lg:block absolute top-14 right-[4%] opacity-85">
+          <AnimatedTeddyBear className="h-16 w-16" />
+        </div>
       </div>
 
       <Container className="relative">
@@ -160,9 +169,9 @@ export function Appointment() {
         <div className="mt-14 grid gap-6 lg:mt-18 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-8">
           {/* ---------- Enquiry form ---------- */}
           <Reveal distance={20}>
-            <div className="relative overflow-hidden rounded-panel bg-surface p-6 shadow-soft border border-[var(--color-pedia-blue-soft,#BFE4F1)] sm:p-9 lg:p-10">
-              <div aria-hidden="true" className="absolute right-6 top-6 hidden sm:block">
-                <div className="h-10 w-10 rounded-full bg-[var(--color-pedia-pink-mid,#F9E1EC)] opacity-60 blur-sm" />
+            <div className="relative overflow-hidden rounded-panel bg-white p-6 shadow-soft border border-[var(--color-pedia-pink-soft,#F3C8D9)] sm:p-9 lg:p-10">
+              <div aria-hidden="true" className="absolute right-6 top-6 hidden sm:block opacity-85">
+                <AnimatedToyBlocks className="h-11 w-11" />
               </div>
 
               <h3 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-[#183B4A] sm:text-[1.625rem]">

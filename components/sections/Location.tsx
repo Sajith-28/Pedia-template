@@ -11,13 +11,37 @@ import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  AnimatedPaperPlane,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 
 export function Location() {
   const quickUrl = whatsappUrl(quickEnquiryMessage);
 
   return (
-    <section id="location" aria-labelledby="location-title" className="bg-canvas py-24 sm:py-28 lg:py-36">
-      <Container>
+    <section
+      id="location"
+      aria-labelledby="location-title"
+      className="relative overflow-hidden bg-gradient-to-b from-[#EBF6FC] via-[#F2F8FD] to-[#EAF6FB] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
+    >
+      {/* Ambient washes & Live moving Paper Plane */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-60" />
+
+        {/* Live moving Paper Plane gliding near location */}
+        <div className="hidden lg:block absolute top-14 right-[4%] opacity-85">
+          <AnimatedPaperPlane className="h-16 w-20" />
+        </div>
+
+        {/* Floating bubbles */}
+        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-65">
+          <AnimatedPastelBubbles className="h-14 w-14" />
+        </div>
+      </div>
+
+      <Container className="relative">
         <SectionHeading
           eyebrow="Location"
           title="Visit the clinic."

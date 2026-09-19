@@ -2,15 +2,23 @@ import { credentialHighlights } from "@/data/credentials";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedPastelBubbles } from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 export function Credentials() {
   return (
     <section
       aria-label="Qualifications and clinical highlights"
-      className="relative border-y border-sky-100 bg-[#FAF9F6] py-8 sm:py-12"
+      className="relative overflow-hidden border-y border-sky-200/60 bg-gradient-to-r from-[var(--color-pedia-blue-light,#EAF6FB)] via-[#FFF5F8] to-[var(--color-pedia-pink-light,#FCECF3)] py-9 sm:py-12"
     >
-      <Container>
+      <div aria-hidden="true" className="pointer-events-none absolute -top-8 -right-6 opacity-45">
+        <AnimatedPastelBubbles className="h-24 w-24" />
+      </div>
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 -left-6 opacity-40">
+        <AnimatedPastelBubbles className="h-20 w-20" />
+      </div>
+
+      <Container className="relative">
         <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {credentialHighlights.map((item, index) => {
             // Alternating soft light blue and light pink backgrounds

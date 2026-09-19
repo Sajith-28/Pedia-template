@@ -3,6 +3,7 @@ import { doctor } from "@/data/doctor";
 import { media } from "@/lib/media";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedTeddyBear } from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 const { philosophy } = doctor;
@@ -17,11 +18,16 @@ export function Philosophy() {
   return (
     <section
       aria-labelledby="philosophy-title"
-      className="relative overflow-hidden bg-[var(--color-pedia-blue-light,#EAF6FB)] border-y border-sky-100 py-24 sm:py-28 lg:py-36"
+      className="relative overflow-hidden bg-gradient-to-tr from-[#EAF6FB] via-[#FDF5F9] to-[#FCECF3] border-y border-rose-100/80 py-24 sm:py-28 lg:py-36"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-drift-a absolute -left-[10%] top-[-20%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-mid,#DDF1F8)_0%,transparent_65%)] opacity-80" />
         <div className="animate-drift-b absolute -right-[12%] bottom-[-25%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-75" />
+
+        {/* Live moving Teddy Bear toy in philosophy section */}
+        <div className="hidden lg:block absolute bottom-12 right-[4%] opacity-85">
+          <AnimatedTeddyBear className="h-16 w-16" />
+        </div>
       </div>
 
       <Container className="relative">

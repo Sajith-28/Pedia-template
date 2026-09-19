@@ -8,6 +8,10 @@ import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  AnimatedHotAirBalloon,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 import { accents, type AccentName } from "@/lib/accents";
 import { cx } from "@/lib/utils";
 
@@ -20,8 +24,27 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faqs" aria-labelledby="faqs-title" className="bg-canvas py-24 sm:py-28 lg:py-36">
-      <Container>
+    <section
+      id="faqs"
+      aria-labelledby="faqs-title"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF0F6] py-24 sm:py-28 lg:py-36 border-t border-rose-100"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
+
+        {/* Live moving Hot Air Balloon in FAQ sticky rail area */}
+        <div className="hidden xl:block absolute top-28 left-[3%] opacity-85">
+          <AnimatedHotAirBalloon className="h-16 w-14" />
+        </div>
+
+        {/* Soft bubbles */}
+        <div className="hidden md:block absolute bottom-12 right-[4%] opacity-70">
+          <AnimatedPastelBubbles className="h-14 w-14" />
+        </div>
+      </div>
+
+      <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           {/* ---------- Heading rail ---------- */}
           <div className="lg:sticky lg:top-32 lg:self-start">
