@@ -121,6 +121,13 @@ const iconPaths = {
   arrowRight: <path d="M4.6 12h14.8M13.1 5.7 19.4 12l-6.3 6.3" />,
   arrowUpRight: <path d="M7.6 16.4 16.4 7.6M8.6 7.6h7.8v7.8" />,
   check: <path d="m5 12.5 4.6 4.6 9.4-10.6" />,
+  star: (
+    <path
+      d="M12 2.4 14.9 8.3l6.5.95-4.7 4.58 1.11 6.47L12 17.24l-5.81 3.06 1.11-6.47-4.7-4.58 6.5-.95L12 2.4Z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
   chevronDown: <path d="m5.6 9.2 6.4 6.3 6.4-6.3" />,
   plus: <path d="M12 5.2v13.6M5.2 12h13.6" />,
   minus: <path d="M5.2 12h13.6" />,

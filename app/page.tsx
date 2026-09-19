@@ -5,6 +5,7 @@ import { Credentials } from "@/components/sections/Credentials";
 import { AboutDoctor } from "@/components/sections/AboutDoctor";
 import { Expertise } from "@/components/sections/Expertise";
 import { Philosophy } from "@/components/sections/Philosophy";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Appointment } from "@/components/sections/Appointment";
 import { Contact } from "@/components/sections/Contact";
 import { Faq } from "@/components/sections/Faq";
@@ -21,6 +22,7 @@ export default function HomePage() {
         <AboutDoctor />
         <Expertise />
         <Philosophy />
+        <Testimonials />
         <Appointment />
         <Contact />
         <Faq />
