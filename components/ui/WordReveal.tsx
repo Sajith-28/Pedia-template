@@ -17,12 +17,15 @@ export function WordReveal({
   delay = 0,
   stagger = 55,
   distance = 26,
+  trailingSpace = false,
 }: {
   text: string;
   className?: string;
   delay?: number;
   stagger?: number;
   distance?: number;
+  /** Keeps a space after the final word, so two lines set inline don't collide. */
+  trailingSpace?: boolean;
 }) {
   const [node, setNode] = useState<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -70,7 +73,7 @@ export function WordReveal({
           className="inline-block whitespace-pre"
         >
           {word}
-          {index < words.length - 1 ? " " : ""}
+          {index < words.length - 1 || trailingSpace ? " " : ""}
         </span>
       ))}
     </span>

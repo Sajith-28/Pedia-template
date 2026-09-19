@@ -1,3 +1,4 @@
+import portrait from "@/public/images/dr-ushapriya-sudhakar.jpg";
 import { contact } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { expertiseAreas } from "@/data/expertise";
@@ -21,6 +22,7 @@ export function buildStructuredData() {
     name: doctor.name,
     jobTitle: doctor.title,
     url: SITE_URL,
+    image: `${SITE_URL}${portrait.src}`,
     medicalSpecialty: ["Pediatric", "Neonatal"],
     areaServed: doctor.city,
     description: doctor.bio[0],

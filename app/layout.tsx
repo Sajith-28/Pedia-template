@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
+import portrait from "@/public/images/dr-ushapriya-sudhakar.jpg";
 import { doctor } from "@/data/doctor";
 import { SITE_URL, buildStructuredData } from "@/lib/structuredData";
 import "./globals.css";
@@ -37,8 +38,6 @@ export const metadata: Metadata = {
     doctor.name,
   ],
   alternates: { canonical: "/" },
-  // No social image: no photograph of the doctor has been supplied, and no
-  // stand-in may be presented as her.
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -46,11 +45,20 @@ export const metadata: Metadata = {
     siteName: doctor.name,
     title,
     description,
+    images: [
+      {
+        url: portrait.src,
+        width: portrait.width,
+        height: portrait.height,
+        alt: `${doctor.name}, ${doctor.title}`,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
+    images: [portrait.src],
   },
   robots: {
     index: true,

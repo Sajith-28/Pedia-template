@@ -91,7 +91,7 @@ export function HeroPortrait() {
           className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-brand-100 shadow-panel ring-1 ring-ink/5 will-change-transform"
           style={{ transform: `translate3d(0, ${-offset}px, 0)` }}
         >
-          <DoctorPortrait />
+          <DoctorPortrait priority />
         </div>
 
         {floatingCards.map((card) => {

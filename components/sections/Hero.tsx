@@ -29,7 +29,12 @@ export function Hero() {
 
             {/* Word-by-word entrance — the one place on the page that earns it. */}
             <h1 className="mt-6 font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink sm:text-[3rem] md:text-[3.5rem] lg:text-[clamp(2.6rem,calc(4.5vw_-_4px),3.9rem)]">
-              <WordReveal text={doctor.headline.lineOne} delay={120} className="max-sm:inline" />
+              <WordReveal
+                text={doctor.headline.lineOne}
+                delay={120}
+                className="max-sm:inline"
+                trailingSpace
+              />
               <WordReveal text={doctor.headline.lineTwo} delay={300} className="max-sm:inline" />
             </h1>
 

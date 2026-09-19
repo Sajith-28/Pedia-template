@@ -27,8 +27,11 @@ export function AboutDoctor() {
                 aria-hidden="true"
                 className="absolute -left-4 -top-4 h-full w-full rounded-[1.75rem] border border-brand-200 sm:-left-5 sm:-top-5"
               />
-              <div className="relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-brand-100 shadow-panel ring-1 ring-ink/5">
-                <DoctorPortrait />
+              <div className="group relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-brand-100 shadow-panel ring-1 ring-ink/5">
+                <DoctorPortrait
+                  sizes="(min-width: 1024px) 34vw, (min-width: 640px) 26rem, 90vw"
+                  className="transition-transform duration-[900ms] ease-premium group-hover:scale-[1.03]"
+                />
               </div>
             </div>
           </Reveal>
