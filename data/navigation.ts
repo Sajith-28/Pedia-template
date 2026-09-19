@@ -19,7 +19,7 @@ export const footerLinks: NavLink[] = [
   { label: "Home", href: "#home", sectionId: "home" },
   { label: "Child-Friendly Care", href: "#child-friendly", sectionId: "child-friendly" },
   { label: "About Doctor", href: "#about", sectionId: "about" },
-  { label: "Pediatric Services", href: "#expertise", sectionId: "expertise" },
+  { label: "Areas of Expertise", href: "#expertise", sectionId: "expertise" },
   { label: "Milestone Guide", href: "#milestones", sectionId: "milestones" },
   { label: "Clinic Location", href: "#clinic", sectionId: "clinic" },
   { label: "FAQs", href: "#faqs", sectionId: "faqs" },

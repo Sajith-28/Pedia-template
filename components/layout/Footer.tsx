@@ -11,7 +11,11 @@ const socialIcons: Record<string, IconName> = {
   LinkedIn: "linkedin",
 };
 
-export function Footer() {
+/**
+ * `linkPrefix` is "/" on pages other than the home page, so the in-page
+ * anchors below resolve against the home page instead of the current route.
+ */
+export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
   const year = new Date().getFullYear();
 
   return (
@@ -48,7 +52,7 @@ export function Footer() {
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={`${linkPrefix}${link.href}`}
                     className="link-underline text-[0.9375rem] text-white/65 transition-colors duration-300 ease-premium hover:text-white"
                   >
                     {link.label}

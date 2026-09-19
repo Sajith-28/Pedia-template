@@ -1,4 +1,6 @@
-import { services } from "@/data/services";
+import Image from "next/image";
+import Link from "next/link";
+import { expertiseAreas, expertiseIntro, expertiseTagline } from "@/data/expertise";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
@@ -21,91 +23,116 @@ export function Expertise() {
       </div>
 
       <Container className="relative">
-        <div className="flex flex-col items-start">
-          <SectionHeading
-            eyebrow="Pediatric clinical expertise"
-            title={
-              <>
-                Specialized care for growing
-                <br className="hidden sm:block" /> minds &amp; bodies.
-              </>
-            }
-            titleId="expertise-title"
-            description="From the first tender weeks of newborn life through teenage years, every specialty is approached with patience, empathy, and evidence-based science."
-            className="max-w-2xl"
-          />
-        </div>
+        <SectionHeading
+          eyebrow="Pediatric clinical expertise"
+          title={<span className="uppercase tracking-[0.005em]">Areas of Expertise</span>}
+          titleId="expertise-title"
+          description={expertiseIntro}
+          align="center"
+          className="mx-auto max-w-3xl"
+        />
 
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-18 lg:grid-cols-4 lg:gap-5">
-          {services.map((service, index) => {
-            const accent = accents[service.accent];
+        <ul className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:mt-18 lg:gap-7">
+          {expertiseAreas.map((area, index) => {
+            const accent = accents[area.accent];
             return (
               <Reveal
-                key={service.title}
+                key={area.slug}
                 as="li"
-                delay={(index % 4) * 90}
+                delay={(index % 2) * 90}
                 distance={18}
-                className={cx(
-                  "group relative flex flex-col justify-between overflow-hidden rounded-panel bg-surface p-6 ring-1 ring-line lg:p-7",
-                  "transition-[transform,box-shadow] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift",
-                )}
+                className="h-full"
               >
-                {/* Accent wash that blooms from the corner on hover. */}
-                <span
-                  aria-hidden="true"
+                <Link
+                  href={`/expertise/${area.slug}`}
+                  aria-label={`${area.title} — read more`}
                   className={cx(
-                    "pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-700 ease-premium group-hover:opacity-75",
-                    accent.wash,
+                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-surface ring-1 ring-line",
+                    "transition-[transform,box-shadow] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift",
                   )}
-                />
-                <span
-                  aria-hidden="true"
-                  className={cx(
-                    "pointer-events-none absolute inset-0 rounded-panel ring-1 ring-transparent transition-[box-shadow] duration-500 ease-premium",
-                    accent.ring,
-                  )}
-                />
+                >
+                  {/* Hover ring in the card's own accent. */}
+                  <span
+                    aria-hidden="true"
+                    className={cx(
+                      "pointer-events-none absolute inset-0 z-10 rounded-panel ring-1 ring-transparent transition-[box-shadow] duration-500 ease-premium",
+                      accent.ring,
+                    )}
+                  />
 
-                <div>
-                  <div className="flex items-center justify-between">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-canvas-soft">
+                    <Image
+                      src={area.image.src}
+                      alt={area.image.alt}
+                      fill
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={area.image.blurDataURL}
+                      sizes="(min-width: 1024px) 34rem, (min-width: 640px) 45vw, 92vw"
+                      className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.06]"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent"
+                    />
                     <span
                       className={cx(
-                        "relative grid h-12 w-12 shrink-0 place-items-center rounded-xl transition-[background-color,transform] duration-500 ease-premium group-hover:-translate-y-1 group-hover:rotate-6",
+                        "absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-xl shadow-soft backdrop-blur-sm",
+                        "transition-transform duration-500 ease-premium group-hover:-translate-y-1 group-hover:rotate-6",
                         accent.chip,
                       )}
                     >
-                      <Icon name={service.icon} className="h-[1.4rem] w-[1.4rem]" />
+                      <Icon name={area.icon} className="h-[1.3rem] w-[1.3rem]" />
                     </span>
-                    <span className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-honey-500">
+                    <span className="absolute right-5 top-5 text-honey-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <TwinklingStar className="h-4 w-4" />
                     </span>
                   </div>
 
-                  <h3 className="relative mt-6 font-display text-[1.125rem] font-bold leading-snug tracking-[-0.015em] text-ink">
-                    {service.title}
-                  </h3>
-                  <p className="relative mt-2.5 text-[0.9125rem] leading-[1.7] text-ink-muted">
-                    {service.description}
-                  </p>
-                </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-7 lg:p-8">
+                    {/* Grows so the CTA stays on the card's baseline whatever
+                        the description length. */}
+                    <div className="flex-1">
+                      <h3 className="font-display text-[1.25rem] font-bold leading-snug tracking-[-0.015em] text-ink sm:text-[1.375rem]">
+                        {area.title}
+                      </h3>
+                      <p className="mt-3 text-[0.9375rem] leading-[1.72] text-ink-muted">
+                        {area.description}
+                      </p>
+                    </div>
 
-                {/* Rule that draws in from the left on hover. */}
-                <div className="relative mt-6 pt-4 border-t border-line/50 flex items-center justify-between">
-                  <span
-                    aria-hidden="true"
-                    className={cx(
-                      "h-1 w-8 origin-left scale-x-75 rounded-full transition-all duration-500 ease-premium group-hover:w-14 group-hover:scale-x-100",
-                      accent.bar,
-                    )}
-                  />
-                  <span className="text-[0.75rem] font-bold uppercase tracking-wider text-ink-soft opacity-70 group-hover:opacity-100">
-                    Pediatric Care
-                  </span>
-                </div>
+                    <div className="mt-6 flex items-center justify-between gap-4 border-t border-line/60 pt-5">
+                      <span className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-brand-700 transition-colors duration-300 ease-premium group-hover:text-brand-800">
+                        Read More
+                        <Icon
+                          name="arrowRight"
+                          className="h-4 w-4 transition-transform duration-500 ease-premium group-hover:translate-x-1.5"
+                        />
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className={cx(
+                          "h-1 w-8 origin-right scale-x-75 rounded-full transition-all duration-500 ease-premium group-hover:w-14 group-hover:scale-x-100",
+                          accent.bar,
+                        )}
+                      />
+                    </div>
+                  </div>
+                </Link>
               </Reveal>
             );
           })}
         </ul>
+
+        <Reveal className="mt-16 text-center lg:mt-20" distance={16}>
+          <p className="font-display text-[1.5rem] font-bold leading-[1.25] tracking-[-0.02em] text-brand-800 sm:text-[1.9rem]">
+            {expertiseTagline}
+          </p>
+          <span
+            aria-hidden="true"
+            className="mx-auto mt-5 block h-1 w-20 rounded-full bg-gradient-to-r from-coral-500 via-honey-500 to-brand-400"
+          />
+        </Reveal>
       </Container>
     </section>
   );

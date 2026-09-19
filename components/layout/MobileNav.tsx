@@ -13,12 +13,14 @@ type Props = {
   open: boolean;
   onClose: () => void;
   activeSection: string;
+  /** "/" when the drawer is open on a page other than the home page. */
+  linkPrefix: string;
 };
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-export function MobileNav({ open, onClose, activeSection }: Props) {
+export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   /* Lock the page behind the drawer without losing scroll position. */
@@ -141,7 +143,7 @@ export function MobileNav({ open, onClose, activeSection }: Props) {
               return (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={`${linkPrefix}${link.href}`}
                     onClick={onClose}
                     aria-current={active ? "true" : undefined}
                     style={{ transitionDelay: open ? `${140 + index * 55}ms` : "0ms" }}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { clinic } from "@/data/clinic";
 import { navLinks } from "@/data/navigation";
 import { ButtonLink } from "@/components/ui/Button";
@@ -17,7 +18,12 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const activeSection = useActiveSection(sectionIds);
+  const spiedSection = useActiveSection(sectionIds);
+  // Off the home page the sections do not exist, so the anchors have to point
+  // back at the home page rather than at the current route, and nothing in the
+  // nav is "current".
+  const linkPrefix = usePathname() === "/" ? "" : "/";
+  const activeSection = linkPrefix === "" ? spiedSection : "";
 
   useEffect(() => {
     let frame = 0;
@@ -68,7 +74,7 @@ export function Header() {
             )}
           >
             <a
-              href="#home"
+              href={linkPrefix || "#home"}
               className="shrink-0 rounded-lg transition-opacity duration-300 ease-premium hover:opacity-80"
             >
               <Logo />
@@ -81,7 +87,7 @@ export function Header() {
                   return (
                     <li key={link.href}>
                       <a
-                        href={link.href}
+                        href={`${linkPrefix}${link.href}`}
                         aria-current={active ? "true" : undefined}
                         className={cx(
                           "relative block px-3.5 py-2 text-[0.9rem] transition-colors duration-300 ease-premium",
@@ -165,6 +171,7 @@ export function Header() {
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         activeSection={activeSection}
+        linkPrefix={linkPrefix}
       />
     </>
   );
