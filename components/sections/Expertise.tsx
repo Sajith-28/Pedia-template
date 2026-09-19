@@ -64,14 +64,14 @@ export function Expertise() {
           className="mx-auto max-w-3xl"
         />
 
-        <ul className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:mt-18 lg:gap-7">
+        <ul className="mx-auto mt-12 grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:mt-16 lg:gap-6">
           {expertiseAreas.map((area, index) => {
             const accent = accents[area.accent];
             return (
               <Reveal
                 key={area.slug}
                 as="li"
-                delay={(index % 2) * 90}
+                delay={(index % 3) * 80}
                 distance={18}
                 className="h-full"
               >
@@ -79,15 +79,15 @@ export function Expertise() {
                   href={`/expertise/${area.slug}`}
                   aria-label={`${area.title} — read more`}
                   className={cx(
-                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-white border-2 border-sky-300 shadow-sm",
-                    "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift hover:border-pink-400",
+                    "group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white border-2 border-sky-300 shadow-sm",
+                    "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-lift hover:border-pink-400",
                   )}
                 >
                   {/* Hover ring in the card's own accent. */}
                   <span
                     aria-hidden="true"
                     className={cx(
-                      "pointer-events-none absolute inset-0 z-10 rounded-panel ring-1 ring-transparent transition-[box-shadow] duration-500 ease-premium",
+                      "pointer-events-none absolute inset-0 z-10 rounded-2xl ring-1 ring-transparent transition-[box-shadow] duration-500 ease-premium",
                       accent.ring,
                     )}
                   />
@@ -100,7 +100,7 @@ export function Expertise() {
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL={area.image.blurDataURL}
-                      sizes="(min-width: 1024px) 34rem, (min-width: 640px) 45vw, 92vw"
+                      sizes="(min-width: 1280px) 24rem, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 95vw"
                       className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.06]"
                     />
                     <span
@@ -109,42 +109,42 @@ export function Expertise() {
                     />
                     <span
                       className={cx(
-                        "absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-xl shadow-soft backdrop-blur-sm",
-                        "transition-transform duration-500 ease-premium group-hover:-translate-y-1 group-hover:rotate-6",
+                        "absolute left-3.5 top-3.5 sm:left-4 sm:top-4 grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-xl shadow-soft backdrop-blur-sm",
+                        "transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:rotate-6",
                         accent.chip,
                       )}
                     >
-                      <Icon name={area.icon} className="h-[1.3rem] w-[1.3rem]" />
+                      <Icon name={area.icon} className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" />
                     </span>
-                    <span className="absolute right-5 top-5 text-honey-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <TwinklingStar className="h-4 w-4" />
+                    <span className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 text-honey-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <TwinklingStar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </span>
                   </div>
 
-                  <div className="flex flex-1 flex-col p-6 sm:p-7 lg:p-8">
+                  <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-5">
                     {/* Grows so the CTA stays on the card's baseline whatever
                         the description length. */}
                     <div className="flex-1">
-                      <h3 className="font-display text-[1.25rem] font-bold leading-snug tracking-[-0.015em] text-ink sm:text-[1.375rem]">
+                      <h3 className="font-display text-[1.05rem] sm:text-[1.125rem] font-bold leading-snug tracking-[-0.015em] text-ink">
                         {area.title}
                       </h3>
-                      <p className="mt-3 text-[0.9375rem] leading-[1.72] text-ink-muted">
+                      <p className="mt-2 text-[0.84rem] sm:text-[0.875rem] leading-[1.65] text-ink-muted">
                         {area.description}
                       </p>
                     </div>
 
-                    <div className="mt-6 flex items-center justify-between gap-4 border-t border-line/60 pt-5">
-                      <span className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-brand-700 transition-colors duration-300 ease-premium group-hover:text-brand-800">
+                    <div className="mt-4 flex items-center justify-between gap-3 border-t border-line/60 pt-3.5 sm:pt-4">
+                      <span className="inline-flex items-center gap-1.5 text-[0.84rem] sm:text-[0.875rem] font-semibold text-brand-700 transition-colors duration-300 ease-premium group-hover:text-brand-800">
                         Read More
                         <Icon
                           name="arrowRight"
-                          className="h-4 w-4 transition-transform duration-500 ease-premium group-hover:translate-x-1.5"
+                          className="h-3.5 w-3.5 transition-transform duration-500 ease-premium group-hover:translate-x-1"
                         />
                       </span>
                       <span
                         aria-hidden="true"
                         className={cx(
-                          "h-1 w-8 origin-right scale-x-75 rounded-full transition-all duration-500 ease-premium group-hover:w-14 group-hover:scale-x-100",
+                          "h-1 w-6 origin-right scale-x-75 rounded-full transition-all duration-500 ease-premium group-hover:w-10 group-hover:scale-x-100",
                           accent.bar,
                         )}
                       />
