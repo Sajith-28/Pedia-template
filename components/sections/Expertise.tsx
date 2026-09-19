@@ -9,6 +9,9 @@ import {
   TwinklingStar,
   AnimatedHotAirBalloon,
   AnimatedToyBlocks,
+  AnimatedPinwheel,
+  AnimatedRubberDucky,
+  AnimatedPastelBubbles,
 } from "@/components/ui/PediatricDecorations";
 import { accents } from "@/lib/accents";
 import { cx } from "@/lib/utils";
@@ -26,13 +29,28 @@ export function Expertise() {
         <div className="animate-drift-b absolute -right-[10%] bottom-[5%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-45" />
 
         {/* Live moving Hot Air Balloon floating on top right margin */}
-        <div className="hidden lg:block absolute top-14 right-[3%] opacity-95">
-          <AnimatedHotAirBalloon className="h-20 w-16 lg:h-24 lg:w-20" />
+        <div className="absolute top-10 right-[3%] opacity-95">
+          <AnimatedHotAirBalloon className="h-14 w-12 sm:h-20 sm:w-16 lg:h-24 lg:w-20" />
         </div>
 
         {/* Live moving Toy Blocks on mid-left margin */}
-        <div className="hidden lg:block absolute top-[44%] left-[2.5%] opacity-90">
-          <AnimatedToyBlocks className="h-16 w-16" />
+        <div className="absolute top-[40%] left-[2%] opacity-90">
+          <AnimatedToyBlocks className="h-11 w-11 sm:h-14 sm:w-14 lg:h-16 lg:w-16" />
+        </div>
+
+        {/* Live moving Pinwheel spinning on top left */}
+        <div className="hidden sm:block absolute top-14 left-[4%] opacity-90">
+          <AnimatedPinwheel className="h-14 w-12 lg:h-16 lg:w-14" />
+        </div>
+
+        {/* Live moving Rubber Ducky bobbing at bottom right */}
+        <div className="absolute bottom-12 right-[4%] opacity-90">
+          <AnimatedRubberDucky className="h-12 w-14 sm:h-14 sm:w-16" />
+        </div>
+
+        {/* Floating Bubbles */}
+        <div className="hidden md:block absolute bottom-16 left-[6%] opacity-80">
+          <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
 

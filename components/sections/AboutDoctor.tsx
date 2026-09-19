@@ -6,6 +6,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   AnimatedRockingHorse,
+  AnimatedTeddyBear,
+  AnimatedButterfly,
   AnimatedPastelBubbles,
 } from "@/components/ui/PediatricDecorations";
 
@@ -23,14 +25,14 @@ export function AboutDoctor() {
         <div className="animate-drift-a absolute -top-16 -left-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_70%)] opacity-40 blur-2xl" />
         <div className="animate-drift-b absolute bottom-8 -right-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_70%)] opacity-45 blur-2xl" />
 
-        {/* Live moving Rocking Horse floating on upper right */}
-        <div className="hidden xl:block absolute top-16 right-[3%] opacity-90">
-          <AnimatedRockingHorse className="h-16 w-20" />
+        {/* Live moving Butterfly floating on upper right */}
+        <div className="absolute top-14 right-[4%] opacity-90">
+          <AnimatedButterfly className="h-12 w-12 sm:h-14 sm:w-14" />
         </div>
 
-        {/* Live moving Pastel Bubbles */}
-        <div className="hidden md:block absolute bottom-20 left-[2%] opacity-80">
-          <AnimatedPastelBubbles className="h-14 w-14" />
+        {/* Live moving Pastel Bubbles on lower left */}
+        <div className="absolute bottom-16 left-[3%] opacity-85">
+          <AnimatedPastelBubbles className="h-14 w-14 sm:h-16 sm:w-16" />
         </div>
       </div>
 
@@ -57,6 +59,10 @@ export function AboutDoctor() {
                   className="transition-transform duration-[900ms] ease-premium group-hover:scale-[1.03]"
                 />
               </div>
+              {/* Live moving Rocking Horse playfully guarding portrait corner */}
+              <div aria-hidden="true" className="pointer-events-none absolute -bottom-6 -right-5 z-10 opacity-95">
+                <AnimatedRockingHorse className="h-14 w-18 sm:h-16 sm:w-20 drop-shadow-md" />
+              </div>
             </div>
           </Reveal>
 
@@ -71,7 +77,11 @@ export function AboutDoctor() {
             </Reveal>
 
             <Reveal delay={200}>
-              <dl className="mt-12 rounded-2xl bg-[#E0F2FE] p-6 sm:p-8 border-2 border-sky-300 shadow-sm">
+              <dl className="relative mt-12 rounded-2xl bg-[#E0F2FE] p-6 sm:p-8 border-2 border-sky-300 shadow-sm">
+                {/* Live moving Teddy Bear perched atop qualifications card */}
+                <div aria-hidden="true" className="pointer-events-none absolute -top-8 right-6 opacity-95">
+                  <AnimatedTeddyBear className="h-13 w-13 sm:h-15 sm:w-15 drop-shadow-sm" />
+                </div>
                 {doctor.credentials.map((row, idx) => (
                   <div
                     key={row.label}

@@ -116,18 +116,18 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
         aria-modal="true"
         aria-label="Site menu"
         className={cx(
-          "fixed inset-y-0 right-0 z-50 flex w-full max-w-[26rem] flex-col bg-canvas",
+          "fixed inset-y-0 right-0 z-50 flex w-full max-w-[26rem] flex-col bg-gradient-to-b from-[#CBE8F9] via-[#E1F2FC] to-[#FCE7F3] border-l-2 border-sky-300",
           "shadow-panel transition-transform duration-[520ms] ease-premium",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-line px-5 sm:px-8">
+        <div className="flex h-[72px] shrink-0 items-center justify-between border-b-2 border-sky-300 px-5 sm:px-8 bg-white/40 backdrop-blur-sm">
           <Logo />
           <button
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="grid h-11 w-11 place-items-center rounded-full text-ink-muted ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 hover:text-brand-800"
+            className="grid h-11 w-11 place-items-center rounded-full text-[#113244] bg-white/70 border border-sky-300 transition-colors duration-300 ease-premium hover:bg-white hover:text-sky-800"
           >
             <Icon name="close" className="h-5 w-5" />
           </button>

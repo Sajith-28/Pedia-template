@@ -3,7 +3,12 @@ import { doctor } from "@/data/doctor";
 import { media } from "@/lib/media";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { AnimatedTeddyBear } from "@/components/ui/PediatricDecorations";
+import {
+  AnimatedTeddyBear,
+  AnimatedRubberDucky,
+  AnimatedButterfly,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 const { philosophy } = doctor;
@@ -24,9 +29,19 @@ export function Philosophy() {
         <div className="animate-drift-a absolute -left-[10%] top-[-20%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-35" />
         <div className="animate-drift-b absolute -right-[12%] bottom-[-25%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,#EC4899_0%,transparent_65%)] opacity-35" />
 
-        {/* Live moving Teddy Bear toy in philosophy section */}
-        <div className="hidden lg:block absolute bottom-12 right-[4%] opacity-90">
-          <AnimatedTeddyBear className="h-16 w-16" />
+        {/* Live moving Butterfly fluttering on upper left */}
+        <div className="absolute top-12 left-[4%] opacity-90">
+          <AnimatedButterfly className="h-12 w-12 sm:h-14 sm:w-14" />
+        </div>
+
+        {/* Live moving Rubber Ducky bobbing on lower right */}
+        <div className="absolute bottom-10 right-[4%] opacity-90">
+          <AnimatedRubberDucky className="h-13 w-15 sm:h-15 sm:w-18" />
+        </div>
+
+        {/* Floating Pastel Bubbles */}
+        <div className="hidden sm:block absolute top-[40%] right-[3%] opacity-75">
+          <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
 
@@ -51,6 +66,11 @@ export function Philosophy() {
                   blurDataURL={media.philosophy.blurDataURL}
                   className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.03]"
                 />
+              </div>
+
+              {/* Playful Teddy Bear perched on top-right of consultation photo */}
+              <div aria-hidden="true" className="pointer-events-none absolute -top-7 -right-4 z-10 opacity-95">
+                <AnimatedTeddyBear className="h-14 w-14 sm:h-16 sm:w-16 drop-shadow-md" />
               </div>
             </div>
           </Reveal>

@@ -470,18 +470,224 @@ export function AnimatedPastelBubbles({ className, ...props }: SvgProps) {
         aria-hidden="true"
         {...props}
       >
-        {/* Large Bubble */}
-        <circle cx="34" cy="30" r="18" fill="#EAF6FB" fillOpacity="0.5" stroke="#7DD3FC" strokeWidth="1.2" />
-        <ellipse cx="28" cy="22" rx="5" ry="2.5" transform="rotate(-30 28 22)" fill="#ffffff" fillOpacity="0.8" />
-        <circle cx="38" cy="38" r="1.5" fill="#F472B6" fillOpacity="0.5" />
+        {/* Large Baby Blue Bubble */}
+        <circle cx="34" cy="30" r="18" fill="#BAE6FD" fillOpacity="0.5" stroke="#38BDF8" strokeWidth="1.4" />
+        <ellipse cx="28" cy="22" rx="5" ry="2.5" transform="rotate(-30 28 22)" fill="#ffffff" fillOpacity="0.85" />
+        <circle cx="38" cy="38" r="1.5" fill="#F472B6" fillOpacity="0.6" />
 
-        {/* Medium Pink Bubble */}
-        <circle cx="16" cy="44" r="11" fill="#FCECF3" fillOpacity="0.55" stroke="#F472B6" strokeWidth="1" />
-        <ellipse cx="13" cy="39" rx="3" ry="1.5" transform="rotate(-30 13 39)" fill="#ffffff" fillOpacity="0.8" />
+        {/* Medium Bubble Gum Pink Bubble */}
+        <circle cx="16" cy="44" r="11" fill="#FCE7F3" fillOpacity="0.6" stroke="#F472B6" strokeWidth="1.3" />
+        <ellipse cx="13" cy="39" rx="3" ry="1.5" transform="rotate(-30 13 39)" fill="#ffffff" fillOpacity="0.85" />
 
-        {/* Small Sky Bubble */}
-        <circle cx="48" cy="14" r="8" fill="#E0F2FE" fillOpacity="0.6" stroke="#38BDF8" strokeWidth="0.9" />
+        {/* Small Baby Blue Bubble */}
+        <circle cx="48" cy="14" r="8" fill="#E0F2FE" fillOpacity="0.65" stroke="#38BDF8" strokeWidth="1.1" />
         <circle cx="46" cy="12" r="1.2" fill="#ffffff" />
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Animated Pinwheel: A spinning pastel pinwheel on a wooden stick with 4 curved blades
+ * in bubble gum pink, baby blue, sunny buttercup, and soft mint.
+ */
+export function AnimatedPinwheel({ className, ...props }: SvgProps) {
+  return (
+    <div className={cx("inline-block select-none", className)}>
+      <svg
+        viewBox="0 0 54 68"
+        fill="none"
+        className="h-full w-full drop-shadow-sm"
+        aria-hidden="true"
+        {...props}
+      >
+        {/* Wooden stick */}
+        <line x1="27" y1="27" x2="27" y2="64" stroke="#FDE68A" strokeWidth="3" strokeLinecap="round" />
+        <line x1="28" y1="27" x2="28" y2="64" stroke="#D97706" strokeWidth="0.8" strokeLinecap="round" />
+
+        {/* Rotating pinwheel blades */}
+        <g className="animate-pinwheel-spin" style={{ transformOrigin: "27px 27px" }}>
+          {/* Top blade - Bubble gum pink */}
+          <path d="M27 27 C27 15 15 15 15 27 Z" fill="#F472B6" stroke="#DB2777" strokeWidth="1" />
+          {/* Right blade - Baby blue */}
+          <path d="M27 27 C39 27 39 15 27 15 Z" fill="#38BDF8" stroke="#0284C7" strokeWidth="1" />
+          {/* Bottom blade - Buttercup yellow */}
+          <path d="M27 27 C27 39 39 39 39 27 Z" fill="#FDE047" stroke="#EAB308" strokeWidth="1" />
+          {/* Left blade - Soft mint */}
+          <path d="M27 27 C15 27 15 39 27 39 Z" fill="#34D399" stroke="#059669" strokeWidth="1" />
+
+          {/* Center pin / grommet */}
+          <circle cx="27" cy="27" r="3.5" fill="#ffffff" stroke="#DB2777" strokeWidth="1.5" />
+          <circle cx="27" cy="27" r="1.5" fill="#DB2777" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Animated Rubber Ducky: Playful yellow bath duck with orange beak,
+ * bubble gum pink blush, and gentle bobbing water ripple.
+ */
+export function AnimatedRubberDucky({ className, ...props }: SvgProps) {
+  return (
+    <div className={cx("inline-block animate-ducky-wobble select-none", className)}>
+      <svg
+        viewBox="0 0 60 52"
+        fill="none"
+        className="h-full w-full drop-shadow-sm"
+        aria-hidden="true"
+        {...props}
+      >
+        {/* Soft water ripples */}
+        <ellipse cx="30" cy="46" rx="24" ry="4.5" fill="#BAE6FD" opacity="0.6" />
+        <path d="M12 45c6 2 14 2 20 0M34 46c5 1.5 12 1.5 16 0" stroke="#38BDF8" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+
+        {/* Duck Body */}
+        <path
+          d="M12 36c0-9 8-15 20-15 8 0 14 3 18 8 2 3 2 7 0 9-4 4-10 6-18 6-12 0-20-4-20-8z"
+          fill="#FDE047"
+          stroke="#EAB308"
+          strokeWidth="1.5"
+        />
+        {/* Wing with baby blue highlight */}
+        <path
+          d="M24 33c-1-4 2-7 7-7 4 0 7 2 9 5-2 3-5 5-9 5-4 0-6-1-7-3z"
+          fill="#FEF08A"
+          stroke="#EAB308"
+          strokeWidth="1.2"
+        />
+
+        {/* Duck Head */}
+        <circle cx="40" cy="21" r="11" fill="#FDE047" stroke="#EAB308" strokeWidth="1.5" />
+
+        {/* Beak */}
+        <path d="M49 20c4-1 9 1 10 3-2 2-6 3-10 2z" fill="#FB923C" stroke="#EA580C" strokeWidth="1.2" />
+
+        {/* Eye */}
+        <circle cx="43" cy="18" r="1.8" fill="#183B4A" />
+        <circle cx="43.5" cy="17.5" r="0.6" fill="#ffffff" />
+
+        {/* Sweet Bubble Gum Pink Blush */}
+        <circle cx="38" cy="24" r="2.2" fill="#F472B6" opacity="0.7" />
+
+        {/* Tail Feather */}
+        <path d="M14 33c-3-2-6-5-6-9 3 2 6 5 8 7z" fill="#FDE047" stroke="#EAB308" strokeWidth="1.2" />
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Animated Little Train: Cute nursery wooden steam train with baby blue cabin,
+ * bubble gum pink boiler, rotating wheels, and puffing steam puffs.
+ */
+export function AnimatedLittleTrain({ className, ...props }: SvgProps) {
+  return (
+    <div className={cx("inline-block animate-train-chug select-none", className)}>
+      <svg
+        viewBox="0 0 72 52"
+        fill="none"
+        className="h-full w-full drop-shadow-sm"
+        aria-hidden="true"
+        {...props}
+      >
+        {/* Steam Puffs */}
+        <circle cx="18" cy="8" r="3" fill="#BAE6FD" opacity="0.7" />
+        <circle cx="12" cy="4" r="4" fill="#FCE7F3" opacity="0.8" />
+        <circle cx="5" cy="2" r="3.2" fill="#BAE6FD" opacity="0.6" />
+
+        {/* Smokestack */}
+        <rect x="15" y="14" width="7" height="12" rx="1.5" fill="#F472B6" stroke="#DB2777" strokeWidth="1.2" />
+        <polygon points="13,14 24,14 22,18 15,18" fill="#F472B6" stroke="#DB2777" strokeWidth="1" />
+
+        {/* Boiler (Bubble Gum Pink) */}
+        <rect x="13" y="24" width="28" height="16" rx="4" fill="#FCE7F3" stroke="#F472B6" strokeWidth="1.5" />
+        <line x1="22" y1="24" x2="22" y2="40" stroke="#F472B6" strokeWidth="1" />
+        <line x1="31" y1="24" x2="31" y2="40" stroke="#F472B6" strokeWidth="1" />
+
+        {/* Cowcatcher front */}
+        <polygon points="13,40 5,42 13,32" fill="#38BDF8" stroke="#0284C7" strokeWidth="1" />
+
+        {/* Cabin (Baby Blue) */}
+        <rect x="40" y="16" width="24" height="24" rx="3" fill="#BAE6FD" stroke="#38BDF8" strokeWidth="1.5" />
+        {/* Cabin Roof */}
+        <path d="M38 16h28c1 0 2-1 2-2H36c0 1 1 2 2 2z" fill="#F472B6" stroke="#DB2777" strokeWidth="1" />
+        {/* Cabin Window */}
+        <rect x="45" y="20" width="14" height="10" rx="2" fill="#ffffff" stroke="#38BDF8" strokeWidth="1.2" />
+        <circle cx="52" cy="25" r="2.5" fill="#FDE047" />
+
+        {/* Wheels */}
+        <circle cx="21" cy="42" r="5" fill="#FEF08A" stroke="#EAB308" strokeWidth="1.5" />
+        <circle cx="21" cy="42" r="2" fill="#F472B6" />
+        <circle cx="34" cy="42" r="5" fill="#FEF08A" stroke="#EAB308" strokeWidth="1.5" />
+        <circle cx="34" cy="42" r="2" fill="#38BDF8" />
+        <circle cx="52" cy="41" r="7" fill="#FEF08A" stroke="#EAB308" strokeWidth="1.5" />
+        <circle cx="52" cy="41" r="3" fill="#F472B6" />
+
+        {/* Connecting rod */}
+        <line x1="21" y1="42" x2="52" y2="41" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Animated Butterfly: Delicate pastel butterfly fluttering its dual-tone wings
+ * in bubble gum pink & baby blue with gentle floating flight path.
+ */
+export function AnimatedButterfly({ className, ...props }: SvgProps) {
+  return (
+    <div className={cx("inline-block animate-butterfly-flutter select-none", className)}>
+      <svg
+        viewBox="0 0 52 48"
+        fill="none"
+        className="h-full w-full drop-shadow-sm"
+        aria-hidden="true"
+        {...props}
+      >
+        {/* Upper Left Wing (Bubble Gum Pink) */}
+        <path
+          d="M26 22 C22 10 8 10 10 24 C10 30 18 30 26 24 Z"
+          fill="#FCE7F3"
+          stroke="#F472B6"
+          strokeWidth="1.4"
+        />
+        <circle cx="16" cy="20" r="3" fill="#F472B6" opacity="0.6" />
+
+        {/* Lower Left Wing (Baby Blue) */}
+        <path
+          d="M26 24 C20 28 14 36 20 40 C26 42 27 34 26 24 Z"
+          fill="#BAE6FD"
+          stroke="#38BDF8"
+          strokeWidth="1.2"
+        />
+
+        {/* Upper Right Wing (Bubble Gum Pink) */}
+        <path
+          d="M26 22 C30 10 44 10 42 24 C42 30 34 30 26 24 Z"
+          fill="#FCE7F3"
+          stroke="#F472B6"
+          strokeWidth="1.4"
+        />
+        <circle cx="36" cy="20" r="3" fill="#F472B6" opacity="0.6" />
+
+        {/* Lower Right Wing (Baby Blue) */}
+        <path
+          d="M26 24 C32 28 38 36 32 40 C26 42 25 34 26 24 Z"
+          fill="#BAE6FD"
+          stroke="#38BDF8"
+          strokeWidth="1.2"
+        />
+
+        {/* Butterfly Body */}
+        <ellipse cx="26" cy="24" rx="2" ry="9" fill="#183B4A" />
+
+        {/* Antennae */}
+        <path d="M25 15 C23 10 20 9 19 10" stroke="#183B4A" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="19" cy="10" r="1" fill="#F472B6" />
+        <path d="M27 15 C29 10 32 9 33 10" stroke="#183B4A" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="33" cy="10" r="1" fill="#38BDF8" />
       </svg>
     </div>
   );
@@ -528,37 +734,52 @@ export function PediatricDoodlesBackdrop({
       {density !== "light" && (
         <>
           {/* Live moving Hot Air Balloon floating top right */}
-          <div className="hidden md:block absolute top-12 right-[4%] opacity-85 hover:opacity-100 transition-opacity">
-            <AnimatedHotAirBalloon className="h-16 w-14 lg:h-20 lg:w-16" />
+          <div className="absolute top-10 right-[3%] opacity-90 hover:opacity-100 transition-opacity">
+            <AnimatedHotAirBalloon className="h-12 w-10 sm:h-16 sm:w-14 lg:h-20 lg:w-16" />
           </div>
 
           {/* Live moving Rocking Horse floating bottom right */}
-          <div className="hidden sm:block absolute bottom-8 right-[5%] opacity-80">
-            <AnimatedRockingHorse className="h-14 w-16 lg:h-16 lg:w-18" />
+          <div className="absolute bottom-6 right-[4%] opacity-85">
+            <AnimatedRockingHorse className="h-12 w-14 sm:h-14 sm:w-16 lg:h-16 lg:w-18" />
           </div>
 
           {/* Live moving Toy Blocks floating mid left */}
-          <div className="hidden sm:block absolute top-[48%] left-[2%] opacity-80">
-            <AnimatedToyBlocks className="h-12 w-12 lg:h-14 lg:w-14" />
+          <div className="absolute top-[48%] left-[2%] opacity-85">
+            <AnimatedToyBlocks className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14" />
+          </div>
+
+          {/* Live moving Pinwheel */}
+          <div className="hidden sm:block absolute top-[18%] left-[3%] opacity-85">
+            <AnimatedPinwheel className="h-14 w-12 lg:h-16 lg:w-14" />
           </div>
 
           {/* Live moving Pastel Bubbles */}
-          <div className="absolute bottom-16 left-[18%] opacity-75">
-            <AnimatedPastelBubbles className="h-12 w-12" />
+          <div className="absolute bottom-14 left-[14%] opacity-80">
+            <AnimatedPastelBubbles className="h-10 w-10 sm:h-12 sm:w-12" />
           </div>
         </>
       )}
 
       {density === "full" && (
         <>
+          {/* Live moving Rubber Ducky */}
+          <div className="hidden sm:block absolute bottom-[22%] left-[4%] opacity-85">
+            <AnimatedRubberDucky className="h-12 w-14 lg:h-14 lg:w-16" />
+          </div>
+
+          {/* Live moving Butterfly */}
+          <div className="absolute top-[36%] right-[8%] opacity-85">
+            <AnimatedButterfly className="h-10 w-11 sm:h-12 sm:w-13" />
+          </div>
+
           {/* Live moving Baby Rattle */}
-          <div className="hidden lg:block absolute bottom-[32%] right-[18%] opacity-75">
-            <AnimatedBabyRattle className="h-12 w-11" />
+          <div className="hidden md:block absolute bottom-[34%] right-[16%] opacity-80">
+            <AnimatedBabyRattle className="h-11 w-10 lg:h-12 lg:w-11" />
           </div>
 
           {/* Live moving Paper Plane */}
-          <div className="hidden lg:block absolute top-[18%] left-[22%] opacity-75">
-            <AnimatedPaperPlane className="h-12 w-16" />
+          <div className="absolute top-[16%] left-[18%] opacity-80">
+            <AnimatedPaperPlane className="h-9 w-12 sm:h-12 sm:w-16" />
           </div>
         </>
       )}

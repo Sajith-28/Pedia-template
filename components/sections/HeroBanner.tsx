@@ -6,6 +6,11 @@ import { doctor } from "@/data/doctor";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
+import {
+  AnimatedHotAirBalloon,
+  AnimatedPaperPlane,
+  AnimatedPastelBubbles,
+} from "@/components/ui/PediatricDecorations";
 
 const AUTOPLAY_INTERVAL = 4000;
 
@@ -188,6 +193,24 @@ export function HeroBanner() {
             </div>
           );
         })}
+
+        {/* Playful live toy animations floating gracefully across hero banner */}
+        <div aria-hidden="true" className="pointer-events-none select-none absolute inset-0 z-20 overflow-hidden">
+          {/* Top right floating hot air balloon */}
+          <div className="absolute top-6 right-6 sm:top-8 sm:right-12 lg:right-20 opacity-90 drop-shadow-md">
+            <AnimatedHotAirBalloon className="h-14 w-12 sm:h-18 sm:w-16 lg:h-22 lg:w-18" />
+          </div>
+
+          {/* Top left paper plane gliding in the sky */}
+          <div className="absolute top-5 left-[30%] sm:left-[45%] opacity-85 drop-shadow-sm">
+            <AnimatedPaperPlane className="h-9 w-12 sm:h-11 sm:w-16" />
+          </div>
+
+          {/* Gentle ambient floating bubbles near bottom right */}
+          <div className="hidden sm:block absolute bottom-14 right-10 opacity-75">
+            <AnimatedPastelBubbles className="h-14 w-14 lg:h-18 lg:w-18" />
+          </div>
+        </div>
 
         {/* Carousel Prev/Next Controls (visible on tablet and desktop) */}
         <div className="hidden sm:flex absolute inset-y-0 inset-x-4 md:inset-x-8 z-20 items-center justify-between pointer-events-none">

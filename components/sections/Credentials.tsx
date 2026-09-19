@@ -2,7 +2,11 @@ import { credentialHighlights } from "@/data/credentials";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
-import { AnimatedPastelBubbles } from "@/components/ui/PediatricDecorations";
+import {
+  AnimatedPastelBubbles,
+  AnimatedPinwheel,
+  AnimatedBabyRattle,
+} from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 export function Credentials() {
@@ -11,6 +15,13 @@ export function Credentials() {
       aria-label="Qualifications and clinical highlights"
       className="relative overflow-hidden border-y border-sky-300/70 bg-gradient-to-r from-[#C2E7F9] via-[#F8C6DF] to-[#C2E7F9] py-9 sm:py-12"
     >
+      {/* Decorative live toys & bubbles on credentials band */}
+      <div aria-hidden="true" className="pointer-events-none absolute -top-4 right-4 sm:right-8 opacity-85">
+        <AnimatedPinwheel className="h-12 w-10 sm:h-14 sm:w-12" />
+      </div>
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-3 left-4 sm:left-8 opacity-85">
+        <AnimatedBabyRattle className="h-11 w-10 sm:h-12 sm:w-11" />
+      </div>
       <div aria-hidden="true" className="pointer-events-none absolute -top-8 -right-6 opacity-60">
         <AnimatedPastelBubbles className="h-24 w-24" />
       </div>
