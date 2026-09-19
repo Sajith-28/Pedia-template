@@ -145,14 +145,14 @@ export function Appointment() {
     <section
       id="appointment"
       aria-labelledby="appointment-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF0F6] py-24 sm:py-28 lg:py-36 border-t border-rose-100/80"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FCE7F3] via-[#FBD0E7] to-[#FCE6F2] py-24 sm:py-28 lg:py-36 border-t border-pink-300"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-35" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-35" />
 
         {/* Live moving Teddy Bear on top right */}
-        <div className="hidden lg:block absolute top-14 right-[4%] opacity-85">
+        <div className="hidden lg:block absolute top-14 right-[4%] opacity-90">
           <AnimatedTeddyBear className="h-16 w-16" />
         </div>
       </div>
@@ -169,12 +169,12 @@ export function Appointment() {
         <div className="mt-14 grid gap-6 lg:mt-18 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-8">
           {/* ---------- Enquiry form ---------- */}
           <Reveal distance={20}>
-            <div className="relative overflow-hidden rounded-panel bg-white p-6 shadow-soft border border-[var(--color-pedia-pink-soft,#F3C8D9)] sm:p-9 lg:p-10">
-              <div aria-hidden="true" className="absolute right-6 top-6 hidden sm:block opacity-85">
-                <AnimatedToyBlocks className="h-11 w-11" />
+            <div className="relative overflow-hidden rounded-panel bg-white p-6 shadow-panel border-2 border-pink-400 sm:p-9 lg:p-10">
+              <div aria-hidden="true" className="absolute right-6 top-6 hidden sm:block opacity-90">
+                <AnimatedToyBlocks className="h-12 w-12" />
               </div>
 
-              <h3 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-[#183B4A] sm:text-[1.625rem]">
+              <h3 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-[#113244] sm:text-[1.625rem]">
                 Appointment enquiry
               </h3>
               <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.7] text-ink-muted">

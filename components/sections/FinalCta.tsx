@@ -14,10 +14,10 @@ export function FinalCta() {
   const quickUrl = whatsappUrl(quickEnquiryMessage);
 
   return (
-    <section aria-labelledby="cta-title" className="relative overflow-hidden bg-gradient-to-b from-[#FAF0F6] via-[#FDF5F9] to-[#EAF6FB] py-20 sm:py-24 lg:py-28">
+    <section aria-labelledby="cta-title" className="relative overflow-hidden bg-gradient-to-b from-[#FCE7F3] via-[#E1F2FC] to-[#BAE6FD] py-20 sm:py-24 lg:py-28">
       <Container>
         <Reveal distance={24}>
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--color-pedia-blue-light,#EAF6FB)] via-white to-[var(--color-pedia-pink-light,#FCECF3)] px-6 py-16 text-center border-2 border-sky-200/80 shadow-panel sm:px-12 sm:py-20 lg:px-16 lg:py-24">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#E0F2FE] via-white to-[#FCE7F3] px-6 py-16 text-center border-2 border-sky-300 shadow-panel sm:px-12 sm:py-20 lg:px-16 lg:py-24">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
               <div className="animate-drift-a absolute -left-[8%] -top-[45%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
               <div className="animate-drift-b absolute -bottom-[55%] -right-[6%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-soft,#F3C8D9)_0%,transparent_65%)] opacity-60" />

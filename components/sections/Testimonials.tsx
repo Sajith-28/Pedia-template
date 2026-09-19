@@ -93,19 +93,19 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#EBF6FB] via-[#F2F8FD] to-[#E9F4FB] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#CBE8F9] via-[#DCF0FA] to-[#CBE8F9] py-24 sm:py-28 lg:py-36 border-t border-sky-300"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-b absolute -left-[8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
-        <div className="animate-drift-a absolute -right-[8%] bottom-[6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-b absolute -left-[8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-35" />
+        <div className="animate-drift-a absolute -right-[8%] bottom-[6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-40" />
 
         {/* Live moving Baby Rattle toy in testimonials */}
-        <div className="hidden lg:block absolute top-12 right-[4%] opacity-85">
+        <div className="hidden lg:block absolute top-12 right-[4%] opacity-90">
           <AnimatedBabyRattle className="h-16 w-14" />
         </div>
 
         {/* Live moving Pastel Bubbles */}
-        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-70">
+        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-80">
           <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
@@ -127,7 +127,7 @@ export function Testimonials() {
               onClick={() => go(index - 1)}
               disabled={index === 0}
               aria-label="Previous testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full bg-surface text-ink-muted ring-1 ring-line transition-[color,box-shadow,transform] duration-300 ease-premium hover:-translate-y-0.5 hover:text-brand-700 hover:ring-brand-200 disabled:pointer-events-none disabled:opacity-40"
+              className="grid h-11 w-11 place-items-center rounded-full bg-white text-sky-900 border-2 border-sky-300 transition-[color,box-shadow,transform] duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#E0F2FE] hover:border-sky-400 disabled:pointer-events-none disabled:opacity-40 shadow-xs"
             >
               <Icon name="arrowRight" className="h-4 w-4 rotate-180" />
             </button>
@@ -136,7 +136,7 @@ export function Testimonials() {
               onClick={() => go(index + 1)}
               disabled={index >= maxIndex}
               aria-label="Next testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full bg-surface text-ink-muted ring-1 ring-line transition-[color,box-shadow,transform] duration-300 ease-premium hover:-translate-y-0.5 hover:text-brand-700 hover:ring-brand-200 disabled:pointer-events-none disabled:opacity-40"
+              className="grid h-11 w-11 place-items-center rounded-full bg-white text-sky-900 border-2 border-sky-300 transition-[color,box-shadow,transform] duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#E0F2FE] hover:border-sky-400 disabled:pointer-events-none disabled:opacity-40 shadow-xs"
             >
               <Icon name="arrowRight" className="h-4 w-4" />
             </button>
@@ -170,7 +170,7 @@ export function Testimonials() {
                     aria-hidden={!visible}
                     className="w-full shrink-0 px-2.5 sm:w-1/2 lg:w-1/3 lg:px-3"
                   >
-                    <figure className="group flex h-full flex-col rounded-panel bg-surface p-7 ring-1 ring-line transition-[transform,box-shadow] duration-500 ease-premium hover:-translate-y-1 hover:shadow-lift sm:p-8">
+                    <figure className="group flex h-full flex-col rounded-panel bg-white p-7 border-2 border-sky-200/90 shadow-soft transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-1 hover:shadow-lift hover:border-pink-300 sm:p-8">
                       <div className="flex items-center justify-between">
                         <span
                           aria-hidden="true"

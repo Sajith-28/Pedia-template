@@ -23,20 +23,20 @@ export function Location() {
     <section
       id="location"
       aria-labelledby="location-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#EBF6FC] via-[#F2F8FD] to-[#EAF6FB] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#CBE8F9] via-[#DCF0FA] to-[#CBE8F9] py-24 sm:py-28 lg:py-36 border-t border-sky-300"
     >
       {/* Ambient washes & Live moving Paper Plane */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-60" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-40" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-40" />
 
         {/* Live moving Paper Plane gliding near location */}
-        <div className="hidden lg:block absolute top-14 right-[4%] opacity-85">
+        <div className="hidden lg:block absolute top-14 right-[4%] opacity-95">
           <AnimatedPaperPlane className="h-16 w-20" />
         </div>
 
         {/* Floating bubbles */}
-        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-65">
+        <div className="hidden md:block absolute bottom-12 left-[3%] opacity-75">
           <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
@@ -53,7 +53,7 @@ export function Location() {
         <div className="mt-14 grid gap-8 lg:mt-18 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-10">
           {/* ---------- Map ---------- */}
           <Reveal distance={22}>
-            <div className="overflow-hidden rounded-panel bg-canvas-soft shadow-soft ring-1 ring-line">
+            <div className="overflow-hidden rounded-panel bg-white shadow-soft border-2 border-sky-300">
               <iframe
                 src={clinicAddress.embedUrl}
                 title={`Map showing ${doctor.name}'s clinic at ${clinicAddressFull}`}

@@ -9,26 +9,26 @@ export function Credentials() {
   return (
     <section
       aria-label="Qualifications and clinical highlights"
-      className="relative overflow-hidden border-y border-sky-200/60 bg-gradient-to-r from-[var(--color-pedia-blue-light,#EAF6FB)] via-[#FFF5F8] to-[var(--color-pedia-pink-light,#FCECF3)] py-9 sm:py-12"
+      className="relative overflow-hidden border-y border-sky-300/70 bg-gradient-to-r from-[#C2E7F9] via-[#F8C6DF] to-[#C2E7F9] py-9 sm:py-12"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute -top-8 -right-6 opacity-45">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-8 -right-6 opacity-60">
         <AnimatedPastelBubbles className="h-24 w-24" />
       </div>
-      <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 -left-6 opacity-40">
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 -left-6 opacity-55">
         <AnimatedPastelBubbles className="h-20 w-20" />
       </div>
 
       <Container className="relative">
         <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {credentialHighlights.map((item, index) => {
-            // Alternating soft light blue and light pink backgrounds
+            // Alternating baby blue and bubble gum pink accents
             const isBlue = index % 2 === 0;
             const bgClass = isBlue
-              ? "bg-[var(--color-pedia-blue-light,#EAF6FB)] border-sky-100 hover:border-sky-200"
-              : "bg-[var(--color-pedia-pink-light,#FCECF3)] border-rose-100 hover:border-rose-200";
+              ? "bg-[#E6F4FC] border-sky-300 hover:border-sky-400 shadow-sm"
+              : "bg-[#FDE7F2] border-pink-300 hover:border-pink-400 shadow-sm";
             const iconBg = isBlue
-              ? "bg-sky-100 text-sky-700"
-              : "bg-rose-100 text-rose-700";
+              ? "bg-[#B9E4FB] text-sky-800"
+              : "bg-[#FBC6E1] text-pink-800";
 
             return (
               <Reveal

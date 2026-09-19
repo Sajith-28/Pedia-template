@@ -18,14 +18,14 @@ export function Philosophy() {
   return (
     <section
       aria-labelledby="philosophy-title"
-      className="relative overflow-hidden bg-gradient-to-tr from-[#EAF6FB] via-[#FDF5F9] to-[#FCECF3] border-y border-rose-100/80 py-24 sm:py-28 lg:py-36"
+      className="relative overflow-hidden bg-gradient-to-tr from-[#C8E7F9] via-[#FBD2E7] to-[#F8BBDC] border-y border-pink-300 py-24 sm:py-28 lg:py-36"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -left-[10%] top-[-20%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-mid,#DDF1F8)_0%,transparent_65%)] opacity-80" />
-        <div className="animate-drift-b absolute -right-[12%] bottom-[-25%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-75" />
+        <div className="animate-drift-a absolute -left-[10%] top-[-20%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-35" />
+        <div className="animate-drift-b absolute -right-[12%] bottom-[-25%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,#EC4899_0%,transparent_65%)] opacity-35" />
 
         {/* Live moving Teddy Bear toy in philosophy section */}
-        <div className="hidden lg:block absolute bottom-12 right-[4%] opacity-85">
+        <div className="hidden lg:block absolute bottom-12 right-[4%] opacity-90">
           <AnimatedTeddyBear className="h-16 w-16" />
         </div>
       </div>
@@ -38,9 +38,9 @@ export function Philosophy() {
               {/* Offset frame */}
               <div
                 aria-hidden="true"
-                className="absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] border border-rose-200/70 sm:-bottom-6 sm:-right-6"
+                className="absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] border-2 border-pink-400 sm:-bottom-6 sm:-right-6"
               />
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-sky-100 shadow-panel ring-1 ring-sky-200/50">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-white shadow-panel ring-2 ring-sky-300">
                 <Image
                   src={media.philosophy.src}
                   alt={media.philosophy.alt}
@@ -58,8 +58,8 @@ export function Philosophy() {
           {/* ---------- Statement ---------- */}
           <div>
             <Reveal>
-              <p className="text-eyebrow flex items-center gap-3 text-teal-700 font-semibold">
-                <span aria-hidden="true" className="h-px w-7 bg-teal-600/40" />
+              <p className="text-eyebrow flex items-center gap-3 text-sky-900 font-bold">
+                <span aria-hidden="true" className="h-0.5 w-7 bg-sky-700" />
                 Our philosophy
               </p>
             </Reveal>
@@ -67,14 +67,14 @@ export function Philosophy() {
             <Reveal delay={90}>
               <h2
                 id="philosophy-title"
-                className="mt-6 font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.03em] text-[#183B4A] sm:text-[2.4rem] lg:text-[2.9rem]"
+                className="mt-6 font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.03em] text-[#113244] sm:text-[2.4rem] lg:text-[2.9rem]"
               >
                 {philosophy.heading}
               </h2>
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-7 border-l-2 border-rose-400 pl-5 font-display text-[1.15rem] font-medium leading-[1.55] tracking-[-0.01em] text-[#183B4A] sm:text-[1.3rem]">
+              <p className="mt-7 border-l-4 border-pink-500 pl-5 font-display text-[1.15rem] font-semibold leading-[1.55] tracking-[-0.01em] text-[#113244] sm:text-[1.3rem]">
                 {philosophy.statement}
               </p>
             </Reveal>
@@ -82,7 +82,7 @@ export function Philosophy() {
             <div className="mt-7 space-y-5">
               {philosophy.body.map((paragraph, index) => (
                 <Reveal key={paragraph} delay={230 + index * 70}>
-                  <p className="text-[1rem] leading-[1.78] text-[#536770]">{paragraph}</p>
+                  <p className="text-[1rem] font-medium leading-[1.78] text-[#1e293b]">{paragraph}</p>
                 </Reveal>
               ))}
             </div>

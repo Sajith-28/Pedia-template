@@ -22,15 +22,17 @@
   --color-canvas-soft: #f4f3ef;
   --color-surface: #ffffff;
 
-  /* ---------- Light Blue / Light Pink design tokens ---------- */
-  --color-pedia-blue-light: #EAF6FB;
-  --color-pedia-blue-mid: #DDF1F8;
-  --color-pedia-blue-soft: #BFE4F1;
-  --color-pedia-pink-light: #FCECF3;
-  --color-pedia-pink-mid: #F9E1EC;
-  --color-pedia-pink-soft: #F3C8D9;
-  --color-pedia-text: #183B4A;
-  --color-pedia-text-secondary: #536770;
+  /* ---------- Baby Blue / Bubble Gum Pink design tokens ---------- */
+  --color-pedia-blue-light: #D4EDFA;
+  --color-pedia-blue-mid: #B3DFF6;
+  --color-pedia-blue-soft: #6EC4F4;
+  --color-pedia-blue-vibrant: #38BDF8;
+  --color-pedia-pink-light: #FCD5E9;
+  --color-pedia-pink-mid: #F8B4D7;
+  --color-pedia-pink-soft: #F472B6;
+  --color-pedia-pink-vibrant: #EC4899;
+  --color-pedia-text: #113244;
+  --color-pedia-text-secondary: #475569;
 
   /* ---------- Ink ---------- */
   --color-ink: #13202a;

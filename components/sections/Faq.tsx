@@ -27,19 +27,19 @@ export function Faq() {
     <section
       id="faqs"
       aria-labelledby="faqs-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF0F6] py-24 sm:py-28 lg:py-36 border-t border-rose-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FCE7F3] via-[#FBD0E7] to-[#FCE6F2] py-24 sm:py-28 lg:py-36 border-t border-pink-300"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-35" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-35" />
 
         {/* Live moving Hot Air Balloon in FAQ sticky rail area */}
-        <div className="hidden xl:block absolute top-28 left-[3%] opacity-85">
+        <div className="hidden xl:block absolute top-28 left-[3%] opacity-90">
           <AnimatedHotAirBalloon className="h-16 w-14" />
         </div>
 
         {/* Soft bubbles */}
-        <div className="hidden md:block absolute bottom-12 right-[4%] opacity-70">
+        <div className="hidden md:block absolute bottom-12 right-[4%] opacity-75">
           <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
@@ -57,12 +57,12 @@ export function Faq() {
 
             <Reveal delay={160}>
               {contact.isConfigured ? (
-                <ButtonLink href={contact.telHref} variant="secondary" size="md" className="mt-8">
+                <ButtonLink href={contact.telHref} variant="secondary" size="md" className="mt-8 bg-white border-2 border-sky-300 hover:border-sky-400">
                   <Icon name="phone" className="h-4 w-4" />
                   {contact.display}
                 </ButtonLink>
               ) : (
-                <ButtonLink href="#appointment" variant="secondary" size="md" className="mt-8">
+                <ButtonLink href="#appointment" variant="secondary" size="md" className="mt-8 bg-white border-2 border-sky-300 hover:border-sky-400">
                   <Icon name="calendar" className="h-4 w-4" />
                   Book an Appointment
                 </ButtonLink>
@@ -86,10 +86,10 @@ export function Faq() {
                 >
                   <div
                     className={cx(
-                      "overflow-hidden rounded-2xl bg-white border p-5 sm:p-6 transition-all duration-300 ease-premium shadow-sm",
+                      "overflow-hidden rounded-2xl bg-white border-2 p-5 sm:p-6 transition-all duration-300 ease-premium shadow-sm",
                       open
-                        ? "border-[var(--color-pedia-pink-soft,#F3C8D9)] ring-2 ring-[var(--color-pedia-pink-light,#FCECF3)]"
-                        : "border-sky-100 hover:border-sky-200",
+                        ? "border-pink-400 ring-2 ring-pink-200"
+                        : "border-sky-200 hover:border-pink-300",
                     )}
                   >
                     <h3>
@@ -104,7 +104,7 @@ export function Faq() {
                         <span
                           className={cx(
                             "font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.015em] transition-colors duration-300 ease-premium sm:text-[1.125rem]",
-                            open ? "text-[#183B4A]" : "text-[#183B4A] group-hover:text-teal-700",
+                            open ? "text-pink-900" : "text-[#113244] group-hover:text-pink-700",
                           )}
                         >
                           {faq.question}
@@ -115,8 +115,8 @@ export function Faq() {
                           className={cx(
                             "mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full transition-[background-color,color,transform] duration-300 ease-premium",
                             open
-                              ? "rotate-180 bg-[var(--color-pedia-pink-soft,#F3C8D9)] text-rose-800"
-                              : "bg-[var(--color-pedia-blue-light,#EAF6FB)] text-sky-700 group-hover:bg-sky-100",
+                              ? "rotate-180 bg-pink-500 text-white"
+                              : "bg-[#D4EDFA] text-sky-800 group-hover:bg-[#B3DFF6]",
                           )}
                         >
                           <Icon name="chevronDown" className="h-4 w-4" />

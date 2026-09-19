@@ -18,20 +18,20 @@ export function Expertise() {
     <section
       id="expertise"
       aria-labelledby="expertise-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#EBF6FB] via-[#F2F9FD] to-[#EAF5FB] py-24 sm:py-28 lg:py-36 border-b border-sky-100"
+      className="relative overflow-hidden bg-gradient-to-b from-[#CBE8F9] via-[#E1F2FC] to-[#CBE8F9] py-24 sm:py-28 lg:py-36 border-b border-sky-300"
     >
       {/* Soft pediatric atmospheric radial washes & live moving toys */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-60" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[5%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-65" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_65%)] opacity-40" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[5%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_65%)] opacity-45" />
 
         {/* Live moving Hot Air Balloon floating on top right margin */}
-        <div className="hidden lg:block absolute top-14 right-[3%] opacity-90">
+        <div className="hidden lg:block absolute top-14 right-[3%] opacity-95">
           <AnimatedHotAirBalloon className="h-20 w-16 lg:h-24 lg:w-20" />
         </div>
 
         {/* Live moving Toy Blocks on mid-left margin */}
-        <div className="hidden lg:block absolute top-[44%] left-[2.5%] opacity-85">
+        <div className="hidden lg:block absolute top-[44%] left-[2.5%] opacity-90">
           <AnimatedToyBlocks className="h-16 w-16" />
         </div>
       </div>
@@ -61,8 +61,8 @@ export function Expertise() {
                   href={`/expertise/${area.slug}`}
                   aria-label={`${area.title} — read more`}
                   className={cx(
-                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-surface border border-[var(--color-pedia-blue-soft,#BFE4F1)] shadow-sm",
-                    "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift hover:border-[var(--color-pedia-pink-soft,#F3C8D9)]",
+                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-white border-2 border-sky-300 shadow-sm",
+                    "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift hover:border-pink-400",
                   )}
                 >
                   {/* Hover ring in the card's own accent. */}

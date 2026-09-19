@@ -16,20 +16,20 @@ export function AboutDoctor() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FDF2F7] to-[#FAF2F8] py-24 sm:py-28 lg:py-36 border-b border-rose-100/70"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FCE7F3] via-[#FBCFE8] to-[#FCE4F1] py-24 sm:py-28 lg:py-36 border-b border-pink-200"
     >
       {/* Ambient pastel glow & live moving toys */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-drift-a absolute -top-16 -left-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-mid,#F9E1EC)_0%,transparent_70%)] opacity-70 blur-2xl" />
-        <div className="animate-drift-b absolute bottom-8 -right-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_70%)] opacity-60 blur-2xl" />
+        <div className="animate-drift-a absolute -top-16 -left-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,#F472B6_0%,transparent_70%)] opacity-40 blur-2xl" />
+        <div className="animate-drift-b absolute bottom-8 -right-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,#38BDF8_0%,transparent_70%)] opacity-45 blur-2xl" />
 
         {/* Live moving Rocking Horse floating on upper right */}
-        <div className="hidden xl:block absolute top-16 right-[3%] opacity-85">
+        <div className="hidden xl:block absolute top-16 right-[3%] opacity-90">
           <AnimatedRockingHorse className="h-16 w-20" />
         </div>
 
         {/* Live moving Pastel Bubbles */}
-        <div className="hidden md:block absolute bottom-20 left-[2%] opacity-70">
+        <div className="hidden md:block absolute bottom-20 left-[2%] opacity-80">
           <AnimatedPastelBubbles className="h-14 w-14" />
         </div>
       </div>
@@ -49,9 +49,9 @@ export function AboutDoctor() {
             <div className="relative mx-auto w-full max-w-[26rem] lg:sticky lg:top-32 lg:max-w-none">
               <div
                 aria-hidden="true"
-                className="absolute -left-4 -top-4 h-full w-full rounded-[1.75rem] border border-brand-200 sm:-left-5 sm:-top-5"
+                className="absolute -left-4 -top-4 h-full w-full rounded-[1.75rem] border-2 border-pink-300 sm:-left-5 sm:-top-5"
               />
-              <div className="group relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-brand-100 shadow-panel ring-1 ring-ink/5">
+              <div className="group relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-[#E0F2FE] shadow-panel ring-1 ring-sky-300">
                 <DoctorPortrait
                   sizes="(min-width: 1024px) 34vw, (min-width: 640px) 26rem, 90vw"
                   className="transition-transform duration-[900ms] ease-premium group-hover:scale-[1.03]"
@@ -63,7 +63,7 @@ export function AboutDoctor() {
           {/* ---------- Biography ---------- */}
           <div>
             <Reveal delay={80}>
-              <p className="text-[1.0625rem] leading-[1.78] text-ink-muted">{firstParagraph}</p>
+              <p className="text-[1.0625rem] leading-[1.78] text-[#113244] font-medium">{firstParagraph}</p>
             </Reveal>
 
             <Reveal delay={140}>
@@ -71,16 +71,16 @@ export function AboutDoctor() {
             </Reveal>
 
             <Reveal delay={200}>
-              <dl className="mt-12 rounded-2xl bg-[var(--color-pedia-blue-light,#EAF6FB)] p-6 sm:p-8 border border-sky-100">
+              <dl className="mt-12 rounded-2xl bg-[#E0F2FE] p-6 sm:p-8 border-2 border-sky-300 shadow-sm">
                 {doctor.credentials.map((row, idx) => (
                   <div
                     key={row.label}
                     className={`flex flex-col gap-1.5 py-4 sm:flex-row sm:items-baseline sm:gap-8 ${
-                      idx !== doctor.credentials.length - 1 ? "border-b border-sky-200/50" : ""
+                      idx !== doctor.credentials.length - 1 ? "border-b border-sky-200" : ""
                     }`}
                   >
-                    <dt className="text-eyebrow shrink-0 text-[#536770] sm:w-52">{row.label}</dt>
-                    <dd className="text-[0.9375rem] font-medium leading-relaxed text-[#183B4A] sm:text-base">
+                    <dt className="text-eyebrow shrink-0 text-sky-900 sm:w-52 font-bold">{row.label}</dt>
+                    <dd className="text-[0.9375rem] font-bold leading-relaxed text-[#113244] sm:text-base">
                       {row.value}
                     </dd>
                   </div>
@@ -90,12 +90,12 @@ export function AboutDoctor() {
 
             <Reveal delay={260}>
               <div className="mt-10">
-                <h3 className="text-eyebrow text-[#536770]">Areas of interest</h3>
+                <h3 className="text-eyebrow text-[#113244] font-bold">Areas of interest</h3>
                 <ul className="mt-4 flex flex-wrap gap-2.5">
                   {doctor.interests.map((interest) => (
                     <li
                       key={interest}
-                      className="rounded-full bg-white px-4 py-2 text-[0.8125rem] font-medium text-[#183B4A] border border-sky-200 shadow-sm transition-all hover:bg-[var(--color-pedia-pink-light,#FCECF3)] hover:border-rose-200"
+                      className="rounded-full bg-white px-4 py-2 text-[0.8125rem] font-bold text-[#113244] border-2 border-pink-300 shadow-sm transition-all hover:bg-[#FCE7F3] hover:border-pink-400"
                     >
                       {interest}
                     </li>
