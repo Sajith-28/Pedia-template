@@ -3,12 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { doctor } from "@/data/doctor";
-import { whatsappUrl, quickEnquiryMessage } from "@/data/contact";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 
-const AUTOPLAY_INTERVAL = 5000;
+const AUTOPLAY_INTERVAL = 4000;
 
 export function HeroBanner() {
   const [current, setCurrent] = useState(0);
@@ -29,7 +28,7 @@ export function HeroBanner() {
     setCurrent(index);
   }, []);
 
-  // Autoplay timer with pause on hover/focus & reduced motion support
+  // Autoplay timer: auto-changes every 4 seconds with pause on hover/focus & reduced motion support
   useEffect(() => {
     if (isPaused) return;
 
@@ -74,8 +73,6 @@ export function HeroBanner() {
     touchStartX.current = null;
   };
 
-  const quickUrl = whatsappUrl(quickEnquiryMessage);
-
   return (
     <section
       id="home"
@@ -105,7 +102,7 @@ export function HeroBanner() {
               aria-roledescription="slide"
               aria-label={`Slide ${index + 1} of ${total}: ${slide.title}`}
               aria-hidden={!isActive}
-              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                 isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
               }`}
             >
@@ -178,23 +175,10 @@ export function HeroBanner() {
                       Book Appointment
                     </ButtonLink>
 
-                    {quickUrl ? (
-                      <a
-                        href={quickUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[0.9375rem] font-bold text-white shadow-soft transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#1DA851] hover:shadow-lift"
-                      >
-                        <Icon name="whatsapp" className="h-5 w-5" />
-                        Chat on WhatsApp
-                      </a>
-                    ) : null}
-
                     <ButtonLink
                       href="#about"
                       variant="inverseOutline"
                       size="lg"
-                      className="hidden sm:inline-flex"
                     >
                       About Doctor
                     </ButtonLink>
