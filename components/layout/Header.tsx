@@ -123,17 +123,19 @@ export function Header() {
                           aria-haspopup="true"
                           className={cx(
                             "relative flex items-center gap-1.5 px-3.5 py-1.5 text-[0.925rem] font-semibold rounded-full transition-all duration-300 ease-premium cursor-pointer",
-                            active || expertiseOpen
-                              ? "text-[#113244] bg-white/80 shadow-xs ring-1 ring-sky-300"
-                              : "text-[#183B4A] hover:text-[#0284C7] hover:bg-white/50",
+                            expertiseOpen
+                              ? "text-[#d9222a] bg-white/90 shadow-xs ring-1 ring-red-200"
+                              : active
+                                ? "text-[#113244] bg-white/80 shadow-xs ring-1 ring-sky-300"
+                                : "text-[#183B4A] hover:text-[#0284C7] hover:bg-white/50",
                           )}
                         >
-                          <span>{link.label}</span>
+                          <span className={cx(expertiseOpen && "text-[#d9222a] font-bold")}>{link.label}</span>
                           <Icon
                             name="chevronDown"
                             className={cx(
                               "h-3.5 w-3.5 transition-transform duration-300",
-                              expertiseOpen ? "rotate-180 text-sky-600" : "text-sky-500",
+                              expertiseOpen ? "rotate-180 text-[#d9222a]" : "text-sky-600",
                             )}
                           />
                           <span
@@ -141,53 +143,37 @@ export function Header() {
                             className={cx(
                               "absolute inset-x-3.5 bottom-0.5 h-0.5 origin-center bg-sky-600 rounded-full",
                               "transition-transform duration-500 ease-premium",
-                              active ? "scale-x-100" : "scale-x-0",
+                              active && !expertiseOpen ? "scale-x-100" : "scale-x-0",
                             )}
                           />
                         </button>
 
-                        {/* Dropdown Menu listing all 6 boxes */}
+                        {/* Dropdown Menu matching user example style */}
                         <div
                           className={cx(
-                            "absolute left-1/2 top-full -translate-x-1/2 pt-2.5 transition-all duration-200 ease-premium z-50",
+                            "absolute left-1/2 top-full -translate-x-1/2 pt-1 transition-all duration-200 ease-premium z-50",
                             expertiseOpen
                               ? "opacity-100 pointer-events-auto translate-y-0"
                               : "opacity-0 pointer-events-none -translate-y-2",
                           )}
                         >
-                          <div className="w-80 rounded-2xl bg-white/95 backdrop-blur-xl border-2 border-sky-200 shadow-2xl p-2.5 ring-1 ring-black/5">
-                            <div className="px-3 py-1.5 border-b border-sky-100 mb-1.5">
-                              <p className="text-[0.72rem] font-bold uppercase tracking-wider text-sky-700">
-                                Areas of Expertise
-                              </p>
-                            </div>
-                            <ul className="space-y-1">
-                              {expertiseAreas.map((area) => {
-                                const accent = accents[area.accent];
-                                return (
-                                  <li key={area.slug}>
-                                    <a
-                                      href={`${linkPrefix}#expertise-${area.slug}`}
-                                      onClick={() => setExpertiseOpen(false)}
-                                      className="flex items-center gap-3 px-3 py-2 rounded-xl text-[0.86rem] font-semibold text-[#183B4A] hover:bg-sky-50 hover:text-sky-900 transition-colors group/item"
-                                    >
-                                      <span
-                                        className={cx(
-                                          "grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs shadow-xs",
-                                          accent.chip,
-                                        )}
-                                      >
-                                        <Icon name={area.icon} className="h-3.5 w-3.5" />
-                                      </span>
-                                      <span className="flex-1 truncate">{area.title}</span>
-                                      <Icon
-                                        name="arrowRight"
-                                        className="h-3.5 w-3.5 text-sky-400 opacity-0 transition-all -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                      />
-                                    </a>
-                                  </li>
-                                );
-                              })}
+                          <div className="w-72 sm:w-80 overflow-hidden rounded-b-xl bg-[#0f4d60] shadow-2xl border-t-4 border-[#d9222a]">
+                            <ul className="flex flex-col">
+                              {expertiseAreas.map((area) => (
+                                <li key={area.slug} className="border-b border-[#1b5d72]/60 last:border-b-0">
+                                  <a
+                                    href={`${linkPrefix}#expertise-${area.slug}`}
+                                    onClick={() => setExpertiseOpen(false)}
+                                    className="group/item flex items-center justify-between px-5 py-3.5 text-[0.9375rem] font-medium text-white/95 transition-colors duration-150 hover:bg-[#0b3e4f] hover:text-white"
+                                  >
+                                    <span className="truncate pr-3">{area.title}</span>
+                                    <Icon
+                                      name="chevronRight"
+                                      className="h-3.5 w-3.5 shrink-0 text-white/60 transition-transform duration-200 group-hover/item:translate-x-1 group-hover/item:text-white"
+                                    />
+                                  </a>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>

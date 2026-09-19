@@ -129,6 +129,7 @@ const iconPaths = {
     />
   ),
   chevronDown: <path d="m5.6 9.2 6.4 6.3 6.4-6.3" />,
+  chevronRight: <path d="m9.2 5.6 6.3 6.4-6.3 6.4" />,
   plus: <path d="M12 5.2v13.6M5.2 12h13.6" />,
   minus: <path d="M5.2 12h13.6" />,
   close: <path d="m6.2 6.2 11.6 11.6M17.8 6.2 6.2 17.8" />,

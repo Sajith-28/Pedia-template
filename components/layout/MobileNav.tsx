@@ -170,29 +170,19 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
                       />
                     </button>
                     {expertiseExpanded && (
-                      <ul className="mb-3 space-y-1 pl-2">
-                        {expertiseAreas.map((area) => {
-                          const accent = accents[area.accent];
-                          return (
-                            <li key={area.slug}>
-                              <a
-                                href={`${linkPrefix}#expertise-${area.slug}`}
-                                onClick={onClose}
-                                className="flex items-center gap-3 px-3 py-2 rounded-xl text-[0.95rem] font-semibold text-[#183B4A] hover:bg-white/60 transition-colors"
-                              >
-                                <span
-                                  className={cx(
-                                    "grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs shadow-xs",
-                                    accent.chip,
-                                  )}
-                                >
-                                  <Icon name={area.icon} className="h-3.5 w-3.5" />
-                                </span>
-                                <span className="truncate">{area.title}</span>
-                              </a>
-                            </li>
-                          );
-                        })}
+                      <ul className="my-2 overflow-hidden rounded-xl bg-[#0f4d60] border-t-2 border-[#d9222a] shadow-md">
+                        {expertiseAreas.map((area) => (
+                          <li key={area.slug} className="border-b border-[#1b5d72]/60 last:border-b-0">
+                            <a
+                              href={`${linkPrefix}#expertise-${area.slug}`}
+                              onClick={onClose}
+                              className="flex items-center justify-between px-4 py-3 text-[0.95rem] font-medium text-white/95 hover:bg-[#0b3e4f] transition-colors"
+                            >
+                              <span className="truncate pr-2">{area.title}</span>
+                              <Icon name="chevronRight" className="h-3.5 w-3.5 shrink-0 text-white/60" />
+                            </a>
+                          </li>
+                        ))}
                       </ul>
                     )}
                   </li>
