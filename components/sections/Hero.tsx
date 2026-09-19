@@ -1,4 +1,3 @@
-import { clinic } from "@/data/clinic";
 import { doctor } from "@/data/doctor";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -23,7 +22,7 @@ export function Hero() {
                   <Icon name="spark" className="h-3 w-3 animate-pulse" />
                 </span>
                 <span className="text-[0.8125rem] font-semibold tracking-tight text-brand-900">
-                  {doctor.eyebrow} &bull; Children First Always
+                  {doctor.title} &bull; {doctor.city}
                 </span>
               </div>
             </Reveal>
@@ -46,27 +45,16 @@ export function Hero() {
                   {doctor.name}
                 </p>
                 <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">
-                  {doctor.shortTitle}
-                  <span className="max-sm:block">
-                    <span aria-hidden="true" className="mx-2 text-line-strong max-sm:hidden">
-                      &middot;
-                    </span>
-                    {doctor.experienceLabel}
-                  </span>
+                  {doctor.qualifications}
                 </p>
               </div>
             </Reveal>
 
             <Reveal delay={640}>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <ButtonLink
-                  href={clinic.whatsapp.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="lg"
-                >
-                  <Icon name="whatsapp" className="h-5 w-5" />
-                  Book via WhatsApp
+                <ButtonLink href="#appointment" size="lg">
+                  <Icon name="calendar" className="h-5 w-5" />
+                  Book Appointment
                 </ButtonLink>
                 <ButtonLink href="#about" variant="secondary" size="lg">
                   View Doctor Profile
@@ -75,16 +63,18 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={720}>
-              <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8125rem] text-ink-soft">
-                <Icon name="clock" className="h-4 w-4 shrink-0 text-mint-500" />
-                <span>{clinic.hours.days}</span>
-                <span aria-hidden="true" className="text-line-strong max-sm:hidden">
-                  &middot;
-                </span>
-                <span>
-                  {clinic.hours.morning} &amp; {clinic.hours.evening}
-                </span>
-              </p>
+              <ul className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[0.8125rem] text-ink-soft">
+                {doctor.interests.map((interest, index) => (
+                  <li key={interest} className="flex items-center gap-2">
+                    {index > 0 ? (
+                      <span aria-hidden="true" className="text-line-strong">
+                        &middot;
+                      </span>
+                    ) : null}
+                    {interest}
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           </div>
 

@@ -24,7 +24,7 @@ export function Expertise() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Pediatric clinical expertise"
+          eyebrow="Paediatric clinical expertise"
           title={<span className="uppercase tracking-[0.005em]">Areas of Expertise</span>}
           titleId="expertise-title"
           description={expertiseIntro}

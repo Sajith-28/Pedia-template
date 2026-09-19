@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { clinic } from "@/data/clinic";
+import { contact } from "@/data/contact";
 import { navLinks } from "@/data/navigation";
 import { doctor } from "@/data/doctor";
 import { ButtonLink } from "@/components/ui/Button";
@@ -176,14 +176,14 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
               open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
             )}
           >
-            <p className="text-eyebrow text-ink-soft">Consultation</p>
+            <p className="text-eyebrow text-ink-soft">Consultant</p>
             <div className="space-y-1.5 text-[0.9375rem] text-ink-muted">
-              <p className="font-medium text-ink">{clinic.hours.days}</p>
-              <p>{clinic.hours.morning}</p>
-              <p>{clinic.hours.evening}</p>
+              <p className="font-medium text-ink">{doctor.name}</p>
+              <p>{doctor.title}</p>
+              <p>{doctor.qualifications}</p>
             </div>
             <p className="text-[0.8125rem] text-ink-soft">
-              {doctor.name} &middot; {doctor.shortTitle}
+              Currently practising in {doctor.city}
             </p>
           </div>
         </nav>
@@ -191,24 +191,24 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
         <div className="shrink-0 border-t border-line bg-surface/60 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-8">
           <div className="flex flex-col gap-3">
             <a
-              href={clinic.whatsapp.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`${linkPrefix}#appointment`}
               onClick={onClose}
-              className="inline-flex select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-soft transition-all duration-300 hover:bg-[#1DA851] w-full"
+              className="inline-flex w-full select-none items-center justify-center gap-2.5 rounded-full bg-brand-700 px-6 py-3.5 text-base font-bold text-white shadow-soft transition-all duration-300 hover:bg-brand-800"
             >
-              <Icon name="whatsapp" className="h-5 w-5" />
-              Book via WhatsApp
+              <Icon name="calendar" className="h-5 w-5" />
+              Book Appointment
             </a>
-            <ButtonLink
-              href={clinic.phone.href}
-              variant="secondary"
-              size="lg"
-              className="w-full"
-            >
-              <Icon name="phone" className="h-4 w-4" />
-              {clinic.phone.display}
-            </ButtonLink>
+            {contact.isConfigured ? (
+              <ButtonLink
+                href={contact.telHref}
+                variant="secondary"
+                size="lg"
+                className="w-full"
+              >
+                <Icon name="phone" className="h-4 w-4" />
+                {contact.display}
+              </ButtonLink>
+            ) : null}
           </div>
         </div>
       </div>

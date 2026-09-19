@@ -1,8 +1,9 @@
 /**
- * DEMO DATA — Fictional practitioner.
+ * Doctor profile — the single source of truth for identity across the site.
  *
- * Replace the values in this file to launch the template with a real doctor.
- * No component reads hard-coded doctor copy; everything flows from here.
+ * Every statement here comes from client-approved copy. Nothing may be added
+ * that the client has not supplied: no experience figures, patient counts,
+ * registration number, awards, hospital affiliations or consultation timings.
  */
 
 export type CredentialRow = {
@@ -11,71 +12,73 @@ export type CredentialRow = {
 };
 
 export const doctor = {
-  name: "Dr. Aarav Mehta",
-  shortName: "Dr. Mehta",
-  title: "Consultant Pediatrician & Child Health Specialist",
-  shortTitle: "Consultant Pediatrician",
-  eyebrow: "Consultant Pediatrician",
-  experienceYears: "18+",
-  experienceLabel: "18+ Years Experience",
-  registrationNumber: "TN-MED-48291",
-  qualifications: "MBBS, MD (Pediatrics)",
-  languages: ["English", "Tamil", "Hindi"],
-  childrenConsulted: "10,000+",
+  name: "Dr. Ushapriya Sudhakar",
+  shortName: "Dr. Ushapriya",
+  title: "Paediatrician & Neonatologist",
+  shortTitle: "Paediatrician & Neonatologist",
+  eyebrow: "Paediatrician & Neonatologist",
+  qualifications: "MBBS, MD Paediatrics and Neonatology",
+  city: "Chennai",
 
   headline: {
     lineOne: "Compassionate care for",
-    lineTwo: "every stage of childhood.",
+    lineTwo: "newborns, children & adolescents.",
   },
 
   intro:
-    "Personalized pediatric care focused on helping children grow healthier, stronger, and happier.",
+    "Paediatrician and Neonatologist in Chennai, providing evidence-based, personalised care for newborns, infants, children and adolescents.",
 
+  /** Client-approved profile. Used in full on the About section. */
   bio: [
-    "Dr. Aarav Mehta is a consultant pediatrician dedicated to providing thoughtful, evidence-based care for infants, children, and adolescents. His approach combines clinical expertise with a calm, family-centered philosophy — one that treats every consultation as a conversation rather than a checklist.",
-    "Over eighteen years of practice across leading child health centres in Chennai and Bengaluru, he has developed a particular interest in early childhood development, nutrition, and preventive care. He believes the most valuable outcome of a visit is a parent who leaves feeling informed and reassured.",
-    "At Little Bloom, consultations are unhurried by design. Families are given the time to describe what they are seeing at home, and every plan is explained in plain language before anyone leaves the room.",
+    "Dr. Ushapriya Sudhakar is a Paediatrician and Neonatologist with expertise in the comprehensive care of newborns, infants, children, and adolescents. She has a particular interest and strong clinical experience in General Paediatrics, providing diagnosis and management for a wide range of acute and chronic childhood illnesses.",
+    "Her practice encompasses everything from common childhood infections, respiratory and gastrointestinal illnesses, allergies, nutritional concerns, growth and developmental assessment, and adolescent health to the evaluation and management of more complex paediatric conditions.",
+    "With additional expertise in Neonatology, Dr. Ushapriya Sudhakar also provides care for newborns, including premature and high-risk babies, and supports families through the early stages of their child’s life.",
+    "Currently practising in Chennai, she believes in providing evidence-based, personalised, and compassionate care, while ensuring that parents understand their child’s condition and feel confident in every step of their child’s healthcare journey.",
   ],
 
   credentials: [
-    { label: "Education", value: "MBBS, MD (Pediatrics)" },
-    { label: "Medical Registration", value: "TN-MED-48291" },
-    { label: "Experience", value: "18+ Years in Pediatric Practice" },
-    { label: "Languages", value: "English • Tamil • Hindi" },
+    { label: "Qualifications", value: "MBBS, MD Paediatrics and Neonatology" },
+    { label: "Specialisation", value: "Paediatrics & Neonatology" },
+    { label: "Care for", value: "Newborns, infants, children and adolescents" },
+    { label: "Currently practising in", value: "Chennai" },
   ] satisfies CredentialRow[],
 
+  /** Professional focus, as supplied by the client. */
   interests: [
-    "Neonatal & Newborn Care",
-    "Developmental Pediatrics",
-    "Childhood Nutrition",
-    "Pediatric Allergy & Asthma",
-    "Immunisation Planning",
-    "Adolescent Wellbeing",
+    "General Paediatrics",
+    "Child Health",
+    "Growth & Development",
+    "Neonatology",
+    "Newborn Care",
   ],
 
+  /**
+   * Drawn from the closing line of the client profile: evidence-based,
+   * personalised and compassionate care, with parents kept informed.
+   */
   philosophy: {
-    heading: "Care that looks beyond the symptoms.",
+    heading: "Care that keeps parents informed at every step.",
     statement:
-      "A child is not a smaller adult. They grow, adapt, and communicate differently — and their care should reflect that.",
+      "Evidence-based, personalised, and compassionate care — with parents who understand their child’s condition and feel confident in every step of their child’s healthcare journey.",
     body: [
-      "Every consultation begins with listening. Understanding a child's routine, appetite, sleep, and temperament often reveals more than any single test result, and it is what allows a treatment plan to fit the family rather than fight it.",
-      "Parents leave with a clear explanation of what is happening, what to watch for at home, and exactly when to come back — because confident parents make the biggest difference to a child's recovery.",
+      "Every child is seen as an individual, and care is shaped around their age, their history and the concerns their family brings to the consultation.",
+      "Parents are partners in that care. Explaining what is happening, and why a particular approach is being taken, is treated as part of the treatment rather than an afterthought.",
     ],
     pillars: [
       {
-        title: "Unhurried consultations",
+        title: "Evidence-based",
         description:
-          "Appointments are scheduled with enough time to ask questions and understand the answers.",
+          "Diagnosis and management guided by current paediatric evidence rather than habit.",
       },
       {
-        title: "Evidence-based decisions",
+        title: "Personalised",
         description:
-          "Investigations and prescriptions are recommended only when they genuinely change the plan of care.",
+          "Care shaped around the individual child, from newborns through to adolescents.",
       },
       {
-        title: "Continuity of care",
+        title: "Compassionate",
         description:
-          "The same doctor follows your child's growth over the years, not a different face each visit.",
+          "An unhurried, family-centred approach that supports parents as well as the child.",
       },
     ],
   },

@@ -1,15 +1,9 @@
-import { clinic } from "@/data/clinic";
+import { contact } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { footerLinks } from "@/data/navigation";
 import { Container } from "@/components/ui/Container";
-import { Icon, type IconName } from "@/components/ui/Icons";
+import { Icon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
-
-const socialIcons: Record<string, IconName> = {
-  Instagram: "instagram",
-  Facebook: "facebook",
-  LinkedIn: "linkedin",
-};
 
 /**
  * `linkPrefix` is "/" on pages other than the home page, so the in-page
@@ -21,28 +15,14 @@ export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
   return (
     <footer className="bg-brand-950 text-white/70">
       <Container>
-        <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1fr] lg:gap-10 lg:py-20">
-          {/* ---------- Brand ---------- */}
+        <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-14 lg:py-20">
+          {/* ---------- Identity ---------- */}
           <div>
             <Logo tone="dark" />
-            <p className="mt-6 max-w-[34ch] text-[0.9375rem] leading-[1.72] text-white/55">
-              A dedicated pediatric practice in Chennai led by {doctor.name}, offering
-              unhurried, evidence-based care from infancy through adolescence.
+            <p className="mt-6 max-w-[38ch] text-[0.9375rem] leading-[1.72] text-white/55">
+              {doctor.qualifications}. Comprehensive care for newborns, infants, children
+              and adolescents, currently practising in {doctor.city}.
             </p>
-
-            <ul className="mt-7 flex items-center gap-2.5">
-              {clinic.social.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    aria-label={`${clinic.shortName} on ${item.label}`}
-                    className="grid h-10 w-10 place-items-center rounded-full text-white/60 ring-1 ring-white/15 transition-[color,background-color,border-color,transform] duration-300 ease-premium hover:-translate-y-0.5 hover:bg-white/10 hover:text-white hover:ring-white/30"
-                  >
-                    <Icon name={socialIcons[item.label] ?? "globe"} className="h-[1.1rem] w-[1.1rem]" />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* ---------- Navigation ---------- */}
@@ -66,48 +46,27 @@ export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
           <div>
             <h2 className="text-eyebrow text-white/55">Contact</h2>
             <ul className="mt-6 space-y-4 text-[0.9375rem]">
+              <li className="text-white/55">{doctor.city}</li>
+              {contact.isConfigured ? (
+                <li>
+                  <a
+                    href={contact.telHref}
+                    className="link-underline text-white/65 transition-colors duration-300 ease-premium hover:text-white"
+                  >
+                    {contact.display}
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <a
-                  href={clinic.phone.href}
-                  className="link-underline text-white/65 transition-colors duration-300 ease-premium hover:text-white"
+                  href={`${linkPrefix}#appointment`}
+                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2.5 text-[0.875rem] font-medium text-white/90 ring-1 ring-white/15 transition-colors duration-300 ease-premium hover:bg-white/15"
                 >
-                  {clinic.phone.display}
+                  <Icon name="calendar" className="h-4 w-4" />
+                  Book an appointment
                 </a>
-              </li>
-              <li>
-                <a
-                  href={clinic.email.href}
-                  className="link-underline break-all text-white/65 transition-colors duration-300 ease-premium hover:text-white"
-                >
-                  {clinic.email.display}
-                </a>
-              </li>
-              <li>
-                <address className="not-italic leading-[1.7] text-white/55">
-                  {clinic.address.line1}
-                  <br />
-                  {clinic.address.line2}
-                </address>
               </li>
             </ul>
-          </div>
-
-          {/* ---------- Hours ---------- */}
-          <div>
-            <h2 className="text-eyebrow text-white/55">Opening hours</h2>
-            <dl className="mt-6 space-y-4 text-[0.9375rem]">
-              <div>
-                <dt className="text-white/85">{clinic.hours.days}</dt>
-                <dd className="mt-1.5 space-y-1 text-white/55">
-                  <span className="block">{clinic.hours.morning}</span>
-                  <span className="block">{clinic.hours.evening}</span>
-                </dd>
-              </div>
-              <div>
-                <dt className="sr-only">Sunday</dt>
-                <dd className="text-white/55">{clinic.hours.closed}</dd>
-              </div>
-            </dl>
           </div>
         </div>
 
@@ -115,17 +74,12 @@ export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
         <div className="border-t border-white/10 py-8">
           <p className="max-w-[70ch] text-[0.8125rem] leading-relaxed text-white/55">
             This website is for informational purposes and does not replace professional
-            medical advice. {doctor.name} &middot; Medical Registration No.{" "}
-            {doctor.registrationNumber}.
+            medical advice. For urgent medical emergencies, please contact your nearest
+            emergency facility.
           </p>
-          <div className="mt-5 flex flex-col gap-2 text-[0.8125rem] text-white/55 sm:flex-row sm:items-center sm:justify-between">
-            <p>
-              &copy; {year} {clinic.name}. All rights reserved.
-            </p>
-            <p className="text-white/50">
-              Demonstration template — doctor and clinic details are fictional.
-            </p>
-          </div>
+          <p className="mt-5 text-[0.8125rem] text-white/55">
+            &copy; {year} {doctor.name}. All rights reserved.
+          </p>
         </div>
       </Container>
     </footer>

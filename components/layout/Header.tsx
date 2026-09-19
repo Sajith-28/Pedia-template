@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { clinic } from "@/data/clinic";
+import { contact } from "@/data/contact";
 import { navLinks } from "@/data/navigation";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -111,32 +111,34 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-2.5">
-              <a
-                href={clinic.phone.href}
-                aria-label={`Call the clinic on ${clinic.phone.display}`}
-                className="grid h-11 w-11 place-items-center rounded-full text-ink-muted ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 hover:text-brand-800 sm:hidden"
-              >
-                <Icon name="phone" className="h-[1.15rem] w-[1.15rem]" />
-              </a>
+              {contact.isConfigured ? (
+                <>
+                  <a
+                    href={contact.telHref}
+                    aria-label={`Call ${contact.display}`}
+                    className="grid h-11 w-11 place-items-center rounded-full text-ink-muted ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 hover:text-brand-800 sm:hidden"
+                  >
+                    <Icon name="phone" className="h-[1.15rem] w-[1.15rem]" />
+                  </a>
 
-              <ButtonLink
-                href={clinic.phone.href}
-                variant="ghost"
-                size="sm"
-                className="max-sm:hidden"
-              >
-                <Icon name="phone" className="h-4 w-4" />
-                Call
-              </ButtonLink>
+                  <ButtonLink
+                    href={contact.telHref}
+                    variant="ghost"
+                    size="sm"
+                    className="max-sm:hidden"
+                  >
+                    <Icon name="phone" className="h-4 w-4" />
+                    Call
+                  </ButtonLink>
+                </>
+              ) : null}
 
               <a
-                href={clinic.whatsapp.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="max-sm:hidden inline-flex select-none items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-[#1DA851] hover:-translate-y-0.5 hover:shadow-lift"
+                href={`${linkPrefix}#appointment`}
+                className="max-sm:hidden inline-flex select-none items-center justify-center gap-2 rounded-full bg-brand-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-brand-800 hover:-translate-y-0.5 hover:shadow-lift"
               >
-                <Icon name="whatsapp" className="h-4 w-4" />
-                Book via WhatsApp
+                <Icon name="calendar" className="h-4 w-4" />
+                Book Appointment
               </a>
 
               <button

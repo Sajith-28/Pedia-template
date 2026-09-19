@@ -1,5 +1,5 @@
 import { cx } from "@/lib/utils";
-import { clinic } from "@/data/clinic";
+import { doctor } from "@/data/doctor";
 
 /**
  * Brand mark: two leaves opening from a bud — a "bloom" read at small sizes,
@@ -51,7 +51,7 @@ export function Logo({
             dark ? "text-white" : "text-ink",
           )}
         >
-          {clinic.shortName}
+          {doctor.name}
         </span>
         {!compact ? (
           <span
@@ -60,7 +60,7 @@ export function Logo({
               dark ? "text-white/55" : "text-ink-soft",
             )}
           >
-            Children&rsquo;s Clinic
+            {doctor.title}
           </span>
         ) : null}
       </span>

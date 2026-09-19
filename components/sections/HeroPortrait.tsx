@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { doctor } from "@/data/doctor";
-import { media } from "@/lib/media";
+import { DoctorPortrait } from "@/components/ui/DoctorPortrait";
 import { Icon, type IconName } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { accents, type AccentName } from "@/lib/accents";
@@ -19,12 +17,13 @@ type FloatingCard = {
   delay: number;
 };
 
+/** Approved profile facts only — no experience figures or patient counts. */
 const floatingCards: FloatingCard[] = [
   {
-    icon: "award",
+    icon: "clipboard",
     accent: "brand",
-    value: doctor.experienceYears,
-    label: "Years of Experience",
+    value: "MBBS, MD",
+    label: "Paediatrics & Neonatology",
     position: "bottom-3 left-3 sm:-left-6 sm:bottom-10 lg:-left-9",
     float: "animate-float-slow",
     delay: 620,
@@ -32,8 +31,8 @@ const floatingCards: FloatingCard[] = [
   {
     icon: "cradle",
     accent: "coral",
-    value: doctor.childrenConsulted,
-    label: "Children cared for",
+    value: "Neonatal Care",
+    label: "Newborn & premature",
     position: "max-sm:hidden sm:block sm:-right-5 sm:top-12 lg:-right-8",
     float: "animate-float-slower",
     delay: 740,
@@ -92,17 +91,7 @@ export function HeroPortrait() {
           className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-brand-100 shadow-panel ring-1 ring-ink/5 will-change-transform"
           style={{ transform: `translate3d(0, ${-offset}px, 0)` }}
         >
-          <Image
-            src={media.doctorPortrait.src}
-            alt={media.doctorPortrait.alt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 30rem, 92vw"
-            quality={68}
-            placeholder="blur"
-            blurDataURL={media.doctorPortrait.blurDataURL}
-            className="object-cover object-top"
-          />
+          <DoctorPortrait />
         </div>
 
         {floatingCards.map((card) => {

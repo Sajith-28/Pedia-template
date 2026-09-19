@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
-import { clinic } from "@/data/clinic";
 import { doctor } from "@/data/doctor";
-import { media } from "@/lib/media";
 import { SITE_URL, buildStructuredData } from "@/lib/structuredData";
 import "./globals.css";
 
@@ -18,50 +16,41 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-const title = `${doctor.name} | Pediatrician in ${clinic.address.city}`;
-const description =
-  "Dr. Aarav Mehta is a consultant pediatrician in Chennai providing compassionate, evidence-based care for infants, children and adolescents.";
+const title = `${doctor.name} | ${doctor.title} in ${doctor.city}`;
+const description = `${doctor.name} is a Paediatrician and Neonatologist practising in ${doctor.city}, providing evidence-based, personalised and compassionate care for newborns, infants, children and adolescents.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: title,
-    template: `%s | ${clinic.name}`,
+    template: `%s | ${doctor.name}`,
   },
   description,
-  applicationName: clinic.name,
+  applicationName: doctor.name,
   authors: [{ name: doctor.name }],
   keywords: [
-    "pediatrician in Chennai",
+    `paediatrician in ${doctor.city}`,
+    `neonatologist in ${doctor.city}`,
     "child specialist Chennai",
-    "children's clinic Anna Nagar",
     "newborn care",
-    "vaccination guidance",
+    "general paediatrics",
     doctor.name,
-    clinic.name,
   ],
   alternates: { canonical: "/" },
+  // No social image: no photograph of the doctor has been supplied, and no
+  // stand-in may be presented as her.
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: SITE_URL,
-    siteName: clinic.name,
+    siteName: doctor.name,
     title,
     description,
-    images: [
-      {
-        url: media.doctorPortrait.src,
-        width: media.doctorPortrait.width,
-        height: media.doctorPortrait.height,
-        alt: media.doctorPortrait.alt,
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title,
     description,
-    images: [media.doctorPortrait.src],
   },
   robots: {
     index: true,

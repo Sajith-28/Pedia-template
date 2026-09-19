@@ -1,94 +1,44 @@
-import { clinic } from "@/data/clinic";
+import { contact } from "@/data/contact";
 import { doctor } from "@/data/doctor";
-import { media } from "@/lib/media";
+import { expertiseAreas } from "@/data/expertise";
 
-export const SITE_URL = "https://littlebloomclinic.example";
+/** Current deployment. Update when the practice's own domain is live. */
+export const SITE_URL = "https://pedia-template.vercel.app";
 
 /**
- * Local healthcare structured data.
- * Emitted once in the root layout as a single @graph.
+ * Physician structured data, emitted once in the root layout.
+ *
+ * Only client-confirmed facts are published: no clinic name, street address,
+ * geo-coordinates, opening hours, email or registration number, because none
+ * has been supplied. Telephone appears only once a number is configured.
  */
 export function buildStructuredData() {
-  const clinicId = `${SITE_URL}/#clinic`;
   const physicianId = `${SITE_URL}/#physician`;
 
-  const address = {
-    "@type": "PostalAddress",
-    streetAddress: clinic.address.line1,
-    addressLocality: clinic.address.city,
-    addressRegion: clinic.address.region,
-    postalCode: clinic.address.postalCode,
-    addressCountry: clinic.address.country,
+  const physician: Record<string, unknown> = {
+    "@type": "Physician",
+    "@id": physicianId,
+    name: doctor.name,
+    jobTitle: doctor.title,
+    url: SITE_URL,
+    medicalSpecialty: ["Pediatric", "Neonatal"],
+    areaServed: doctor.city,
+    description: doctor.bio[0],
+    hasCredential: doctor.qualifications,
+    availableService: expertiseAreas.map((area) => ({
+      "@type": "MedicalTherapy",
+      name: area.title,
+      description: area.description,
+      url: `${SITE_URL}/expertise/${area.slug}`,
+    })),
   };
 
-  const openingHours = [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      opens: "09:00",
-      closes: "13:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      opens: "16:00",
-      closes: "20:00",
-    },
-  ];
+  if (contact.isConfigured) {
+    physician.telephone = contact.display;
+  }
 
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "MedicalClinic",
-        "@id": clinicId,
-        name: clinic.name,
-        url: SITE_URL,
-        telephone: clinic.phone.display,
-        email: clinic.email.display,
-        image: media.doctorPortrait.src,
-        address,
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: clinic.coordinates.lat,
-          longitude: clinic.coordinates.lng,
-        },
-        openingHoursSpecification: openingHours,
-        medicalSpecialty: "Pediatric",
-        areaServed: clinic.address.city,
-        employee: { "@id": physicianId },
-      },
-      {
-        "@type": "Physician",
-        "@id": physicianId,
-        name: doctor.name,
-        jobTitle: doctor.title,
-        url: SITE_URL,
-        image: media.doctorPortrait.src,
-        telephone: clinic.phone.display,
-        medicalSpecialty: "Pediatric",
-        knowsLanguage: doctor.languages,
-        address,
-        worksFor: { "@id": clinicId },
-        availableService: doctor.interests.map((name) => ({
-          "@type": "MedicalTherapy",
-          name,
-        })),
-      },
-    ],
+    "@graph": [physician],
   };
 }

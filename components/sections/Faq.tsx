@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { clinic } from "@/data/clinic";
+import { contact } from "@/data/contact";
 import { faqs } from "@/data/faqs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -29,14 +29,21 @@ export function Faq() {
               eyebrow="FAQs"
               title="Questions parents ask."
               titleId="faqs-title"
-              description="If something is not covered here, the clinic is happy to answer it over the phone."
+              description="If something is not covered here, send an appointment enquiry and we will get back to you."
             />
 
             <Reveal delay={160}>
-              <ButtonLink href={clinic.phone.href} variant="secondary" size="md" className="mt-8">
-                <Icon name="phone" className="h-4 w-4" />
-                {clinic.phone.display}
-              </ButtonLink>
+              {contact.isConfigured ? (
+                <ButtonLink href={contact.telHref} variant="secondary" size="md" className="mt-8">
+                  <Icon name="phone" className="h-4 w-4" />
+                  {contact.display}
+                </ButtonLink>
+              ) : (
+                <ButtonLink href="#appointment" variant="secondary" size="md" className="mt-8">
+                  <Icon name="calendar" className="h-4 w-4" />
+                  Book an Appointment
+                </ButtonLink>
+              )}
             </Reveal>
           </div>
 

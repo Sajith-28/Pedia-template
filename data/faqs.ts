@@ -3,35 +3,41 @@ export type Faq = {
   answer: string;
 };
 
+/**
+ * Every answer restates information from the client-approved profile or
+ * describes how this website's own appointment flow works. Nothing here
+ * asserts consultation lengths, walk-in policy, timings or fees, because the
+ * client has not supplied them.
+ */
 export const faqs: Faq[] = [
   {
-    question: "What age groups do you treat?",
+    question: "Which age groups does Dr. Ushapriya Sudhakar care for?",
     answer:
-      "The clinic cares for children from birth through to 18 years — newborns and infants, school-age children, and adolescents. Care is adapted to each stage, so a two-week-old and a sixteen-year-old are approached very differently.",
+      "She provides comprehensive care for newborns, infants, children and adolescents — every stage of childhood, with the approach adapted to the child's age.",
   },
   {
-    question: "Do I need an appointment?",
+    question: "What are her qualifications?",
     answer:
-      "An appointment is recommended so your child is seen at a predictable time with minimal waiting. Walk-ins are accommodated where the schedule allows, and unwell infants are always prioritised.",
+      "Dr. Ushapriya Sudhakar holds MBBS, MD Paediatrics and Neonatology, and practises as a Paediatrician and Neonatologist.",
   },
   {
-    question: "What should I bring for my child's first visit?",
+    question: "What kinds of conditions does she manage?",
     answer:
-      "Please bring any previous prescriptions, discharge summaries, the immunisation record, and recent test reports if you have them. A short note of your questions is genuinely useful — it makes sure nothing is forgotten during the consultation.",
+      "Her practice covers common childhood infections, respiratory and gastrointestinal illnesses, allergies, nutritional concerns, growth and developmental assessment, and adolescent health, through to the evaluation and management of more complex paediatric conditions.",
   },
   {
-    question: "Do you provide vaccination guidance?",
+    question: "Does she care for newborn and premature babies?",
     answer:
-      "Yes. You will receive a written immunisation schedule tailored to your child's age and history, including which vaccines are routine, which are optional, and how to catch up if a dose has been missed.",
+      "Yes. With additional expertise in Neonatology, she provides care for newborns including premature and high-risk babies, and supports families through the early stages of their child's life.",
   },
   {
-    question: "How long does a consultation take?",
+    question: "Where does Dr. Ushapriya Sudhakar practise?",
     answer:
-      "A first consultation is typically scheduled for 20 to 30 minutes, and follow-up visits for around 15 minutes. Appointments are deliberately spaced so that visits are not rushed.",
+      "She is currently practising in Chennai. Full clinic address details will be published here once confirmed.",
   },
   {
-    question: "Do you offer follow-up consultations?",
+    question: "How do I request an appointment?",
     answer:
-      "Yes. Follow-ups are arranged whenever a condition needs monitoring, and you will always leave knowing what to watch for at home and when to return. Brief clarifications after a visit can be handled over the phone during clinic hours.",
+      "Use the appointment enquiry form on this page. Fill in your child's details and your preferred date and time, and the form opens WhatsApp with your enquiry ready to send, so the details reach the clinic in one message.",
   },
 ];

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { clinic } from "@/data/clinic";
+import { contact, quickEnquiryMessage, whatsappUrl } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { expertiseAreas, findExpertiseArea } from "@/data/expertise";
 import { Header } from "@/components/layout/Header";
@@ -11,7 +11,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
-import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
+import { FloatingContact } from "@/components/ui/FloatingContact";
 import { accents } from "@/lib/accents";
 import { cx } from "@/lib/utils";
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     openGraph: {
       type: "article",
       url,
-      title: `${area.title} | ${clinic.name}`,
+      title: `${area.title} | ${doctor.name}`,
       description: area.description,
       images: [
         {
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${area.title} | ${clinic.name}`,
+      title: `${area.title} | ${doctor.name}`,
       description: area.description,
       images: [area.image.src],
     },
@@ -64,6 +64,7 @@ export default async function ExpertiseDetailPage({ params }: Params) {
 
   const accent = accents[area.accent];
   const others = expertiseAreas.filter((item) => item.slug !== area.slug);
+  const quickUrl = whatsappUrl(quickEnquiryMessage);
 
   return (
     <>
@@ -166,12 +167,11 @@ export default async function ExpertiseDetailPage({ params }: Params) {
                 <Reveal distance={20}>
                   <div className="rounded-panel bg-surface p-7 ring-1 ring-line sm:p-9 lg:p-10">
                     <h2 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-ink sm:text-[1.625rem]">
-                      Care at {clinic.name}
+                      Care with {doctor.name}
                     </h2>
                     <p className="mt-4 text-[1rem] leading-[1.75] text-ink-muted">
-                      {area.title} is one of the areas {doctor.name},{" "}
-                      {doctor.shortTitle}, consults in at the clinic. Every
-                      consultation follows the same principles.
+                      {area.title} is one of the areas {doctor.name}, {doctor.title},
+                      consults in. Every consultation follows the same principles.
                     </p>
 
                     <ul className="mt-8 space-y-6">
@@ -198,8 +198,8 @@ export default async function ExpertiseDetailPage({ params }: Params) {
                     </ul>
 
                     <p className="mt-8 border-t border-line pt-6 text-[0.875rem] leading-[1.7] text-ink-soft">
-                      This page is for general information. For advice about your
-                      child, please book a consultation.
+                      This page is for general information. For advice about your child,
+                      please book a consultation.
                     </p>
                   </div>
                 </Reveal>
@@ -212,86 +212,75 @@ export default async function ExpertiseDetailPage({ params }: Params) {
                         Book a consultation
                       </h2>
                       <p className="mt-3 text-[0.9375rem] leading-[1.7] text-ink-muted">
-                        Message the clinic desk on WhatsApp and we will confirm a
-                        comfortable slot with {doctor.shortName}.
+                        Send an appointment enquiry with your child&rsquo;s details and it
+                        opens in WhatsApp, ready to send.
                       </p>
 
-                      <a
-                        href={clinic.whatsapp.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group mt-6 inline-flex w-full select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-3.5 text-[0.9375rem] font-bold text-white shadow-soft transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#1DA851] hover:shadow-lift active:translate-y-0"
-                      >
-                        <Icon
-                          name="whatsapp"
-                          className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
-                        />
-                        Book via WhatsApp
-                      </a>
-
-                      <ButtonLink
-                        href="/#appointment"
-                        variant="secondary"
-                        size="md"
-                        className="mt-3 w-full"
-                      >
+                      <ButtonLink href="/#appointment" size="md" className="mt-6 w-full">
                         <Icon name="calendar" className="h-4 w-4" />
                         Book an Appointment
                       </ButtonLink>
 
-                      <ButtonLink
-                        href={clinic.phone.href}
-                        variant="ghost"
-                        size="md"
-                        className="mt-1 w-full"
-                      >
-                        <Icon name="phone" className="h-4 w-4" />
-                        {clinic.phone.display}
-                      </ButtonLink>
+                      {quickUrl ? (
+                        <a
+                          href={quickUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group mt-3 inline-flex w-full select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-3.5 text-[0.9375rem] font-bold text-white shadow-soft transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#1DA851] hover:shadow-lift active:translate-y-0"
+                        >
+                          <Icon
+                            name="whatsapp"
+                            className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
+                          />
+                          WhatsApp
+                        </a>
+                      ) : null}
+
+                      {contact.isConfigured ? (
+                        <ButtonLink
+                          href={contact.telHref}
+                          variant="ghost"
+                          size="md"
+                          className="mt-1 w-full"
+                        >
+                          <Icon name="phone" className="h-4 w-4" />
+                          {contact.display}
+                        </ButtonLink>
+                      ) : null}
                     </div>
                   </Reveal>
 
-                  {/* Hours */}
+                  {/* Doctor summary */}
                   <Reveal delay={160} distance={20}>
                     <div className="rounded-panel bg-brand-950 p-7 text-white shadow-soft sm:p-8">
                       <div className="flex items-center gap-3">
                         <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-teal-300">
-                          <Icon name="clock" className="h-5 w-5" />
+                          <Icon name="stethoscope" className="h-5 w-5" />
                         </span>
                         <h2 className="font-display text-[1.0625rem] font-bold tracking-[-0.015em]">
-                          Consultation hours
+                          {doctor.name}
                         </h2>
                       </div>
 
-                      <p className="mt-6 text-[0.9375rem] font-medium text-white/90">
-                        {clinic.hours.days}
+                      <p className="mt-5 text-[0.9375rem] text-white/85">{doctor.title}</p>
+                      <p className="mt-1.5 text-[0.875rem] text-white/55">
+                        {doctor.qualifications}
                       </p>
 
-                      <dl className="mt-4 space-y-3">
-                        {clinic.consultationSlots.map((slot) => (
-                          <div
-                            key={slot.label}
-                            className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3 last:border-b-0 last:pb-0"
+                      <ul className="mt-6 flex flex-wrap gap-2">
+                        {doctor.interests.map((interest) => (
+                          <li
+                            key={interest}
+                            className="rounded-full bg-white/10 px-3 py-1.5 text-[0.75rem] font-medium text-white/80 ring-1 ring-white/15"
                           >
-                            <dt className="text-[0.8125rem] uppercase tracking-[0.12em] text-white/55">
-                              {slot.label}
-                            </dt>
-                            <dd className="text-[0.9375rem] text-white/85">
-                              {slot.value}
-                            </dd>
-                          </div>
+                            {interest}
+                          </li>
                         ))}
-                      </dl>
+                      </ul>
 
-                      <p className="mt-5 text-[0.8125rem] text-white/55">
-                        {clinic.hours.closed}
+                      <p className="mt-6 border-t border-white/10 pt-5 text-[0.8125rem] text-white/55">
+                        Currently practising in {doctor.city}
                       </p>
-
-                      <address className="mt-5 border-t border-white/10 pt-5 text-[0.875rem] not-italic leading-[1.7] text-white/60">
-                        {clinic.address.line1}
-                        <br />
-                        {clinic.address.line2}
-                      </address>
                     </div>
                   </Reveal>
                 </aside>
@@ -353,7 +342,7 @@ export default async function ExpertiseDetailPage({ params }: Params) {
       </main>
 
       <Footer linkPrefix="/" />
-      <FloatingWhatsApp />
+      <FloatingContact />
     </>
   );
 }

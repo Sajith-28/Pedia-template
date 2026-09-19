@@ -1,4 +1,4 @@
-import { clinic } from "@/data/clinic";
+import { contact, quickEnquiryMessage, whatsappUrl } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/PediatricDecorations";
 
 export function FinalCta() {
+  const quickUrl = whatsappUrl(quickEnquiryMessage);
+
   return (
     <section aria-labelledby="cta-title" className="bg-canvas pb-24 sm:pb-28 lg:pb-32">
       <Container>
@@ -46,9 +48,9 @@ export function FinalCta() {
 
             <div className="relative mx-auto max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-1.5 ring-1 ring-brand-200 shadow-soft mb-6">
-                <span className="h-2 w-2 rounded-full bg-[#25D366] animate-ping" />
+                <span className="h-2 w-2 rounded-full bg-brand-500" />
                 <span className="text-[0.8125rem] font-semibold text-brand-900">
-                  Accepting New Pediatric Patients &bull; Same-Day Slots Available
+                  {doctor.title} &bull; {doctor.city}
                 </span>
               </div>
 
@@ -60,28 +62,39 @@ export function FinalCta() {
               </h2>
 
               <p className="mt-5 text-[1.0625rem] leading-[1.72] text-ink-muted">
-                Schedule a consultation with {doctor.name}. No complex forms &mdash; simply message us on WhatsApp.
+                Share a few details about your child with {doctor.name} and your enquiry
+                opens in WhatsApp, ready to send.
               </p>
 
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                <a
-                  href={clinic.whatsapp.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-8 py-4 text-[1rem] font-bold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-[#1DA851] hover:-translate-y-0.5 hover:shadow-lift w-full sm:w-auto"
-                >
-                  <Icon name="whatsapp" className="h-5 w-5" />
-                  Book via WhatsApp
-                </a>
-                <ButtonLink
-                  href={clinic.phone.href}
-                  variant="secondary"
-                  size="lg"
-                  className="w-full sm:w-auto bg-white/90"
-                >
-                  <Icon name="phone" className="h-4 w-4" />
-                  Call {clinic.phone.display}
+                <ButtonLink href="#appointment" size="lg" className="w-full sm:w-auto">
+                  <Icon name="calendar" className="h-5 w-5" />
+                  Book Appointment
                 </ButtonLink>
+
+                {quickUrl ? (
+                  <a
+                    href={quickUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full select-none items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-8 py-4 text-[1rem] font-bold text-white shadow-soft transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:bg-[#1DA851] hover:shadow-lift sm:w-auto"
+                  >
+                    <Icon name="whatsapp" className="h-5 w-5" />
+                    Chat on WhatsApp
+                  </a>
+                ) : null}
+
+                {contact.isConfigured ? (
+                  <ButtonLink
+                    href={contact.telHref}
+                    variant="secondary"
+                    size="lg"
+                    className="w-full bg-white/90 sm:w-auto"
+                  >
+                    <Icon name="phone" className="h-4 w-4" />
+                    Call {contact.display}
+                  </ButtonLink>
+                ) : null}
               </div>
             </div>
           </div>
