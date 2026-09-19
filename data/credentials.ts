@@ -17,21 +17,21 @@ export type CredentialHighlight = {
  */
 export const credentialHighlights: CredentialHighlight[] = [
   {
-    value: "MBBS, MD",
-    label: "Paediatrics and Neonatology",
-    icon: "clipboard",
+    value: "5 Years",
+    label: "Clinical Paediatric Experience",
+    icon: "award",
     accent: "brand",
   },
   {
-    value: "Neonatal Care",
-    label: "Including premature and high-risk babies",
-    icon: "cradle",
+    value: "Sri Ramachandra",
+    label: "Medical College and Hospital",
+    icon: "clipboard",
     accent: "coral",
   },
   {
-    value: "Newborn to Adolescent",
-    label: "Care at every stage of childhood",
-    icon: "growth",
+    value: "MBBS, MD",
+    label: "Paediatrics and Neonatology",
+    icon: "stethoscope",
     accent: "mint",
   },
   {

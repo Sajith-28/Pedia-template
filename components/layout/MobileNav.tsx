@@ -230,6 +230,7 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
               <p className="font-medium text-ink">{doctor.name}</p>
               <p>{doctor.title}</p>
               <p>{doctor.qualifications}</p>
+              <p className="text-xs font-semibold text-sky-900">{doctor.experience} • {doctor.medicalCollege}</p>
             </div>
             <p className="text-[0.8125rem] text-ink-soft">
               Currently practising in {doctor.city}

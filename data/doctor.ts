@@ -18,6 +18,8 @@ export const doctor = {
   shortTitle: "Paediatrician & Neonatologist",
   eyebrow: "Paediatrician & Neonatologist",
   qualifications: "MBBS, MD Paediatrics and Neonatology",
+  experience: "5 Years of Clinical Experience",
+  medicalCollege: "Sri Ramachandra Medical College and Hospital",
   city: "Chennai",
 
   headline: {
@@ -38,6 +40,8 @@ export const doctor = {
 
   credentials: [
     { label: "Qualifications", value: "MBBS, MD Paediatrics and Neonatology" },
+    { label: "Medical College", value: "Sri Ramachandra Medical College and Hospital" },
+    { label: "Experience", value: "5 Years of Clinical Experience" },
     { label: "Specialisation", value: "Paediatrics & Neonatology" },
     { label: "Care for", value: "Newborns, infants, children and adolescents" },
     { label: "Currently practising in", value: "Chennai" },
