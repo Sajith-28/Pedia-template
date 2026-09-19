@@ -64,14 +64,15 @@ function validate(values: FormValues): Partial<Record<FieldName, string>> {
 }
 
 /**
- * Builds the WhatsApp message. Optional lines are dropped when blank so the
- * doctor never receives a half-empty enquiry. The caller percent-encodes it.
+ * Builds the WhatsApp message. Plain text throughout — no emoji. Optional
+ * lines are dropped when blank so the doctor never receives a half-empty
+ * enquiry. The caller percent-encodes it.
  */
 function buildMessage(values: FormValues): string {
   const lines = [
-    "Hello Dr. Ushapriya 👩‍⚕️,",
+    "Hello Dr. Ushapriya,",
     "",
-    "I would like to book a consultation for my child. 🩺👶",
+    "I would like to book a consultation for my child.",
     "",
     `Parent/Guardian Name: ${values.parentName.trim()}`,
     `Child's Name: ${values.childName.trim()}`,
@@ -87,7 +88,7 @@ function buildMessage(values: FormValues): string {
     lines.push("", "Additional Note:", values.note.trim());
   }
 
-  lines.push("", "Please let me know the available appointment slot.", "", "Thank you. 🙏");
+  lines.push("", "Please let me know the available appointment slot.", "", "Thank you.");
 
   return lines.join("\n");
 }

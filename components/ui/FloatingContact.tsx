@@ -6,19 +6,25 @@ import { doctor } from "@/data/doctor";
 import { Icon } from "@/components/ui/Icons";
 import { TeddyBear } from "@/components/ui/PediatricDecorations";
 
-/** Topics drawn from the client-approved areas of expertise. */
+/**
+ * Topics drawn from the client-approved areas of expertise. The labels are
+ * on-site UI; the `text` is what gets sent, and stays plain — no emoji.
+ */
 const quickPrompts = [
   {
-    label: "📅 Book a consultation",
-    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to book a consultation for my child.",
+    label: "Book a consultation",
+    icon: "calendar" as const,
+    text: "Hello Dr. Ushapriya, I would like to book a consultation for my child.",
   },
   {
-    label: "👶 Newborn care",
-    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to enquire about newborn care for my baby.",
+    label: "Newborn care",
+    icon: "cradle" as const,
+    text: "Hello Dr. Ushapriya, I would like to enquire about newborn care for my baby.",
   },
   {
-    label: "🌱 Growth & development",
-    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to consult regarding my child's growth and development.",
+    label: "Growth & development",
+    icon: "growth" as const,
+    text: "Hello Dr. Ushapriya, I would like to consult regarding my child's growth and development.",
   },
 ];
 
@@ -94,10 +100,13 @@ export function FloatingContact() {
                   href={whatsappUrl(prompt.text)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl bg-canvas-soft px-3.5 py-2.5 text-[0.8125rem] font-medium text-ink ring-1 ring-line/60 transition-colors hover:bg-brand-50 hover:text-brand-800"
+                  className="flex items-center justify-between gap-3 rounded-xl bg-canvas-soft px-3.5 py-2.5 text-[0.8125rem] font-medium text-ink ring-1 ring-line/60 transition-colors hover:bg-brand-50 hover:text-brand-800"
                 >
-                  <span>{prompt.label}</span>
-                  <Icon name="arrowRight" className="h-3.5 w-3.5 text-brand-600" />
+                  <span className="flex items-center gap-2.5">
+                    <Icon name={prompt.icon} className="h-4 w-4 shrink-0 text-brand-600" />
+                    {prompt.label}
+                  </span>
+                  <Icon name="arrowRight" className="h-3.5 w-3.5 shrink-0 text-brand-600" />
                 </a>
               ))}
             </div>

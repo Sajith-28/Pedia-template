@@ -42,6 +42,6 @@ export function whatsappUrl(message: string): string {
   return `https://wa.me/${contact.number}?text=${encodeURIComponent(message)}`;
 }
 
-/** Short greeting for the "just chat" entry points. */
+/** Short greeting for the "just chat" entry points. Plain text, no emoji. */
 export const quickEnquiryMessage =
-  "Hello Dr. Ushapriya 👩‍⚕️, I would like to enquire about a consultation for my child.";
+  "Hello Dr. Ushapriya, I would like to enquire about a consultation for my child.";
