@@ -27,12 +27,12 @@ function unsplash(id: string, width: number, height: number, crop = "faces,cente
 
 export const media = {
   philosophy: {
-    src: unsplash("1676313030076-4ac0b37050fd", 1240, 940, "center"),
-    alt: "A paediatrician listening to a young child's chest with a stethoscope during a check-up",
-    width: 1240,
-    height: 940,
+    src: "/images/doctor-checking-baby.jpg",
+    alt: "A caring paediatrician examining a smiling baby with a stethoscope during a clinic consultation",
+    width: 1024,
+    height: 768,
     blurDataURL:
-      "data:image/jpeg;base64,/9j/2wCEAAkLCw0RDRIUFBIYGhgaGCQhHh4hJDYnKScpJzZRMzszMzszUUdWR0JHVkeAZVlZZYCUfHZ8lLOgoLPh1eH///8BCQsLDRENEhQUEhgaGBoYJCEeHiEkNicpJyknNlEzOzMzOzNRR1ZHQkdWR4BlWVllgJR8dnyUs6Cgs+HV4f/////AABEIAAoADgMBIgACEQEDEQH/xABeAAEBAAAAAAAAAAAAAAAAAAAFBhABAAEEAgEFAAAAAAAAAAAAAQIAAwQRBRIiMTIzQXEBAQAAAAAAAAAAAAAAAAAAAAMRAAEFAQAAAAAAAAAAAAAAAAEAAhEhIgP/2gAMAwEAAhEDEQA/AG7Gbdv94uOME2yTS/m6VtcDj3IE5e51uHoFMX/nxz68qlmS8nliqHWg6HZm0rBkRS//2Q==",
+      "data:image/jpeg;base64,/9j/2wCEAAkLCw0RDRIUFBIYGhgaGCQhHh4hJDYnKScpJzZRMzszMzszUUdWR0JHVkeAZVlZZYCUfHZ8lLOgoLPh1eH///8BCQsLDRENEhQUEhgaGBoYJCEeHiEkNicpJyknNlEzOzMzOzNRR1ZHQkdWR4BlWVllgJR8dnyUs6Cgs+HV4f/////AABEIAAoADgMBIgACEQEDEQH/xABeAAEBAAAAAAAAAAAAAAAAAAAFBhABAAEEAgEFAAAAAAAAAAAAAAECAAwQRBRIiMTIzQXEBAQAAAAAAAAAAAAAAAAAAAAMRAAEFAQAAAAAAAAAAAAAAAAEAAhEhIgP/2gAMAwEAAhEDEQA/AG7Gbdv94uOME2yTS/m6VtcDj3IE5e51uHoFMX/nxz68qlmS8nliqHWg6HZm0rBkRS//2Q==",
   },
 
   /* ---------- Areas of expertise ----------
