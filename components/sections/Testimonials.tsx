@@ -87,7 +87,7 @@ export function Testimonials() {
 
   return (
     <section
-      id="experiences"
+      id="testimonials"
       aria-labelledby="testimonials-title"
       className="relative overflow-hidden bg-canvas-soft py-24 sm:py-28 lg:py-36"
     >

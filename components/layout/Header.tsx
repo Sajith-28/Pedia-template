@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { contact } from "@/data/contact";
 import { navLinks } from "@/data/navigation";
-import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
@@ -80,7 +79,8 @@ export function Header() {
               <Logo />
             </a>
 
-            <nav aria-label="Primary" className="hidden lg:block">
+            {/* Seven links need the wider breakpoint; below it the drawer takes over. */}
+            <nav aria-label="Primary" className="hidden xl:block">
               <ul className="flex items-center gap-1">
                 {navLinks.map((link) => {
                   const active = activeSection === link.sectionId;
@@ -112,30 +112,18 @@ export function Header() {
 
             <div className="flex items-center gap-2 sm:gap-2.5">
               {contact.isConfigured ? (
-                <>
-                  <a
-                    href={contact.telHref}
-                    aria-label={`Call ${contact.display}`}
-                    className="grid h-11 w-11 place-items-center rounded-full text-ink-muted ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 hover:text-brand-800 sm:hidden"
-                  >
-                    <Icon name="phone" className="h-[1.15rem] w-[1.15rem]" />
-                  </a>
-
-                  <ButtonLink
-                    href={contact.telHref}
-                    variant="ghost"
-                    size="sm"
-                    className="max-sm:hidden"
-                  >
-                    <Icon name="phone" className="h-4 w-4" />
-                    Call
-                  </ButtonLink>
-                </>
+                <a
+                  href={contact.telHref}
+                  aria-label={`Call ${contact.display}`}
+                  className="grid h-11 w-11 place-items-center rounded-full text-ink-muted ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 hover:text-brand-800 sm:hidden"
+                >
+                  <Icon name="phone" className="h-[1.15rem] w-[1.15rem]" />
+                </a>
               ) : null}
 
               <a
                 href={`${linkPrefix}#appointment`}
-                className="max-sm:hidden inline-flex select-none items-center justify-center gap-2 rounded-full bg-brand-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-brand-800 hover:-translate-y-0.5 hover:shadow-lift"
+                className="max-sm:hidden inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-brand-800 hover:-translate-y-0.5 hover:shadow-lift"
               >
                 <Icon name="calendar" className="h-4 w-4" />
                 Book Appointment
@@ -147,7 +135,7 @@ export function Header() {
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"
-                className="group grid h-11 w-11 place-items-center rounded-full ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 lg:hidden"
+                className="group grid h-11 w-11 place-items-center rounded-full ring-1 ring-line-strong transition-colors duration-300 ease-premium hover:bg-brand-50 xl:hidden"
               >
                 <span aria-hidden="true" className="relative block h-[9px] w-5">
                   <span className="absolute left-0 top-0 h-px w-5 bg-ink transition-colors duration-300 ease-premium group-hover:bg-brand-800" />

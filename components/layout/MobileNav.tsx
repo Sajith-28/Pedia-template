@@ -96,7 +96,7 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
     // `inert` removes the closed drawer from the focus order *and* the
     // accessibility tree — aria-hidden alone would leave its links tabbable.
     <div
-      className={cx("lg:hidden", open ? "pointer-events-auto" : "pointer-events-none")}
+      className={cx("xl:hidden", open ? "pointer-events-auto" : "pointer-events-none")}
       inert={!open}
     >
       {/* Scrim */}
