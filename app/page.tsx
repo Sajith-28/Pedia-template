@@ -7,7 +7,7 @@ import { Expertise } from "@/components/sections/Expertise";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Appointment } from "@/components/sections/Appointment";
-import { Contact } from "@/components/sections/Contact";
+import { Location } from "@/components/sections/Location";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FloatingContact } from "@/components/ui/FloatingContact";
@@ -24,7 +24,7 @@ export default function HomePage() {
         <Philosophy />
         <Testimonials />
         <Appointment />
-        <Contact />
+        <Location />
         <Faq />
         <FinalCta />
       </main>

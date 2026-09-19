@@ -1,4 +1,4 @@
-import { contact } from "@/data/contact";
+import { clinicAddress, contact } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { footerLinks } from "@/data/navigation";
 import { Container } from "@/components/ui/Container";
@@ -46,7 +46,13 @@ export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
           <div>
             <h2 className="text-eyebrow text-white/55">Contact</h2>
             <ul className="mt-6 space-y-4 text-[0.9375rem]">
-              <li className="text-white/55">{doctor.city}</li>
+              <li>
+                <address className="not-italic leading-[1.7] text-white/55">
+                  {clinicAddress.line1}
+                  <br />
+                  {clinicAddress.line2}
+                </address>
+              </li>
               {contact.isConfigured ? (
                 <li>
                   <a

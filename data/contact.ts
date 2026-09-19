@@ -45,3 +45,31 @@ export function whatsappUrl(message: string): string {
 /** Short greeting for the "just chat" entry points. Plain text, no emoji. */
 export const quickEnquiryMessage =
   "Hello Dr. Ushapriya, I would like to enquire about a consultation for my child.";
+
+/**
+ * Clinic location, as confirmed by the client.
+ *
+ * Coordinates and the place link come from the practice's own Google Maps
+ * listing. The embed is the keyless Google Maps endpoint, so no API key is
+ * needed; swap in the Maps Embed API (with a key) if usage ever warrants it.
+ */
+const COORDINATES = { lat: 13.0725314, lng: 80.2195736 };
+
+export const clinicAddress = {
+  line1: "20, Govinda St, Ayyavoo Colony",
+  line2: "Aminjikarai, Chennai, Tamil Nadu 600029",
+  street: "20, Govinda St, Ayyavoo Colony",
+  locality: "Aminjikarai",
+  city: "Chennai",
+  region: "Tamil Nadu",
+  postalCode: "600029",
+  country: "IN",
+  coordinates: COORDINATES,
+  /** The practice's Google Maps listing. */
+  mapsUrl: "https://maps.app.goo.gl/56aMkRGXxuBWMgGt8",
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${COORDINATES.lat}%2C${COORDINATES.lng}`,
+  embedUrl: `https://maps.google.com/maps?q=${COORDINATES.lat},${COORDINATES.lng}&z=16&hl=en&output=embed`,
+} as const;
+
+/** Single line, for structured data and link titles. */
+export const clinicAddressFull = `${clinicAddress.line1}, ${clinicAddress.line2}`;

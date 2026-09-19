@@ -33,7 +33,7 @@ export const faqs: Faq[] = [
   {
     question: "Where does Dr. Ushapriya Sudhakar practise?",
     answer:
-      "She is currently practising in Chennai. Full clinic address details will be published here once confirmed.",
+      "The clinic is at 20, Govinda St, Ayyavoo Colony, Aminjikarai, Chennai, Tamil Nadu 600029. You can see it on the map in the Location section and open directions in Google Maps from there.",
   },
   {
     question: "How do I request an appointment?",

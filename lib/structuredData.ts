@@ -1,5 +1,5 @@
 import portrait from "@/public/images/dr-ushapriya-sudhakar.jpg";
-import { contact } from "@/data/contact";
+import { clinicAddress, contact } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { expertiseAreas } from "@/data/expertise";
 
@@ -25,6 +25,20 @@ export function buildStructuredData() {
     image: `${SITE_URL}${portrait.src}`,
     medicalSpecialty: ["Pediatric", "Neonatal"],
     areaServed: doctor.city,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: clinicAddress.street,
+      addressLocality: clinicAddress.locality,
+      addressRegion: clinicAddress.region,
+      postalCode: clinicAddress.postalCode,
+      addressCountry: clinicAddress.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: clinicAddress.coordinates.lat,
+      longitude: clinicAddress.coordinates.lng,
+    },
+    hasMap: clinicAddress.mapsUrl,
     description: doctor.bio[0],
     hasCredential: doctor.qualifications,
     availableService: expertiseAreas.map((area) => ({

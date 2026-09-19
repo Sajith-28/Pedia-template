@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     `paediatrician in ${doctor.city}`,
     `neonatologist in ${doctor.city}`,
     "child specialist Chennai",
+    "paediatrician Aminjikarai",
     "newborn care",
     "general paediatrics",
     doctor.name,

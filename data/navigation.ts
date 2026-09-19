@@ -12,7 +12,7 @@ export const navLinks: NavLink[] = [
   { label: "Expertise", href: "#expertise", sectionId: "expertise" },
   { label: "Testimonials", href: "#testimonials", sectionId: "testimonials" },
   { label: "Appointments", href: "#appointment", sectionId: "appointment" },
-  { label: "Contact", href: "#contact", sectionId: "contact" },
+  { label: "Location", href: "#location", sectionId: "location" },
   { label: "FAQs", href: "#faqs", sectionId: "faqs" },
 ];
 
@@ -22,6 +22,6 @@ export const footerLinks: NavLink[] = [
   { label: "Areas of Expertise", href: "#expertise", sectionId: "expertise" },
   { label: "Parent Experiences", href: "#testimonials", sectionId: "testimonials" },
   { label: "Book an Appointment", href: "#appointment", sectionId: "appointment" },
-  { label: "Contact", href: "#contact", sectionId: "contact" },
+  { label: "Clinic Location", href: "#location", sectionId: "location" },
   { label: "FAQs", href: "#faqs", sectionId: "faqs" },
 ];
