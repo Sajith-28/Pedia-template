@@ -76,11 +76,13 @@ export function Expertise() {
                 className="h-full"
               >
                 <Link
+                  id={`expertise-${area.slug}`}
                   href={`/expertise/${area.slug}`}
                   aria-label={`${area.title} — read more`}
                   className={cx(
-                    "group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white border-2 border-sky-300 shadow-sm",
+                    "group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white border-2 border-sky-300 shadow-sm scroll-mt-28 sm:scroll-mt-36",
                     "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-lift hover:border-pink-400",
+                    "target:ring-4 target:ring-sky-400 target:border-sky-500 target:shadow-lift",
                   )}
                 >
                   {/* Hover ring in the card's own accent. */}

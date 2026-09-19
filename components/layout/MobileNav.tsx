@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 import { navLinks } from "@/data/navigation";
 import { doctor } from "@/data/doctor";
+import { expertiseAreas } from "@/data/expertise";
+import { accents } from "@/lib/accents";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
@@ -22,6 +24,7 @@ const FOCUSABLE =
 
 export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
+  const [expertiseExpanded, setExpertiseExpanded] = useState(false);
 
   /* Lock the page behind the drawer without losing scroll position. */
   useEffect(() => {
@@ -140,6 +143,62 @@ export function MobileNav({ open, onClose, activeSection, linkPrefix }: Props) {
           <ul className="flex flex-col">
             {navLinks.map((link, index) => {
               const active = activeSection === link.sectionId;
+              const isExpertise = link.sectionId === "expertise";
+
+              if (isExpertise) {
+                return (
+                  <li key={link.href} className="border-b border-line/80">
+                    <button
+                      type="button"
+                      onClick={() => setExpertiseExpanded((prev) => !prev)}
+                      style={{ transitionDelay: open ? `${140 + index * 55}ms` : "0ms" }}
+                      className={cx(
+                        "w-full flex items-center justify-between py-4 text-left",
+                        "font-display text-[1.4rem] tracking-[-0.02em]",
+                        "transition-[opacity,transform,color] duration-500 ease-premium cursor-pointer",
+                        open ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0",
+                        active || expertiseExpanded ? "text-brand-700" : "text-ink hover:text-brand-700",
+                      )}
+                    >
+                      <span>{link.label}</span>
+                      <Icon
+                        name="chevronDown"
+                        className={cx(
+                          "h-5 w-5 transition-transform duration-300",
+                          expertiseExpanded ? "rotate-180 text-brand-700" : "text-ink-muted",
+                        )}
+                      />
+                    </button>
+                    {expertiseExpanded && (
+                      <ul className="mb-3 space-y-1 pl-2">
+                        {expertiseAreas.map((area) => {
+                          const accent = accents[area.accent];
+                          return (
+                            <li key={area.slug}>
+                              <a
+                                href={`${linkPrefix}#expertise-${area.slug}`}
+                                onClick={onClose}
+                                className="flex items-center gap-3 px-3 py-2 rounded-xl text-[0.95rem] font-semibold text-[#183B4A] hover:bg-white/60 transition-colors"
+                              >
+                                <span
+                                  className={cx(
+                                    "grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs shadow-xs",
+                                    accent.chip,
+                                  )}
+                                >
+                                  <Icon name={area.icon} className="h-3.5 w-3.5" />
+                                </span>
+                                <span className="truncate">{area.title}</span>
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </li>
+                );
+              }
+
               return (
                 <li key={link.href}>
                   <a

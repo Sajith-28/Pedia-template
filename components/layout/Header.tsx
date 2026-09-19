@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { contact } from "@/data/contact";
 import { navLinks } from "@/data/navigation";
+import { expertiseAreas } from "@/data/expertise";
+import { accents } from "@/lib/accents";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
@@ -17,12 +19,31 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expertiseOpen, setExpertiseOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
   const spiedSection = useActiveSection(sectionIds);
   // Off the home page the sections do not exist, so the anchors have to point
   // back at the home page rather than at the current route, and nothing in the
   // nav is "current".
   const linkPrefix = usePathname() === "/" ? "" : "/";
   const activeSection = linkPrefix === "" ? spiedSection : "";
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setExpertiseOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setExpertiseOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -84,6 +105,96 @@ export function Header() {
               <ul className="flex items-center gap-1.5">
                 {navLinks.map((link) => {
                   const active = activeSection === link.sectionId;
+                  const isExpertise = link.sectionId === "expertise";
+
+                  if (isExpertise) {
+                    return (
+                      <li
+                        key={link.href}
+                        ref={dropdownRef}
+                        className="relative"
+                        onMouseEnter={() => setExpertiseOpen(true)}
+                        onMouseLeave={() => setExpertiseOpen(false)}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setExpertiseOpen((prev) => !prev)}
+                          aria-expanded={expertiseOpen}
+                          aria-haspopup="true"
+                          className={cx(
+                            "relative flex items-center gap-1.5 px-3.5 py-1.5 text-[0.925rem] font-semibold rounded-full transition-all duration-300 ease-premium cursor-pointer",
+                            active || expertiseOpen
+                              ? "text-[#113244] bg-white/80 shadow-xs ring-1 ring-sky-300"
+                              : "text-[#183B4A] hover:text-[#0284C7] hover:bg-white/50",
+                          )}
+                        >
+                          <span>{link.label}</span>
+                          <Icon
+                            name="chevronDown"
+                            className={cx(
+                              "h-3.5 w-3.5 transition-transform duration-300",
+                              expertiseOpen ? "rotate-180 text-sky-600" : "text-sky-500",
+                            )}
+                          />
+                          <span
+                            aria-hidden="true"
+                            className={cx(
+                              "absolute inset-x-3.5 bottom-0.5 h-0.5 origin-center bg-sky-600 rounded-full",
+                              "transition-transform duration-500 ease-premium",
+                              active ? "scale-x-100" : "scale-x-0",
+                            )}
+                          />
+                        </button>
+
+                        {/* Dropdown Menu listing all 6 boxes */}
+                        <div
+                          className={cx(
+                            "absolute left-1/2 top-full -translate-x-1/2 pt-2.5 transition-all duration-200 ease-premium z-50",
+                            expertiseOpen
+                              ? "opacity-100 pointer-events-auto translate-y-0"
+                              : "opacity-0 pointer-events-none -translate-y-2",
+                          )}
+                        >
+                          <div className="w-80 rounded-2xl bg-white/95 backdrop-blur-xl border-2 border-sky-200 shadow-2xl p-2.5 ring-1 ring-black/5">
+                            <div className="px-3 py-1.5 border-b border-sky-100 mb-1.5">
+                              <p className="text-[0.72rem] font-bold uppercase tracking-wider text-sky-700">
+                                Areas of Expertise
+                              </p>
+                            </div>
+                            <ul className="space-y-1">
+                              {expertiseAreas.map((area) => {
+                                const accent = accents[area.accent];
+                                return (
+                                  <li key={area.slug}>
+                                    <a
+                                      href={`${linkPrefix}#expertise-${area.slug}`}
+                                      onClick={() => setExpertiseOpen(false)}
+                                      className="flex items-center gap-3 px-3 py-2 rounded-xl text-[0.86rem] font-semibold text-[#183B4A] hover:bg-sky-50 hover:text-sky-900 transition-colors group/item"
+                                    >
+                                      <span
+                                        className={cx(
+                                          "grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs shadow-xs",
+                                          accent.chip,
+                                        )}
+                                      >
+                                        <Icon name={area.icon} className="h-3.5 w-3.5" />
+                                      </span>
+                                      <span className="flex-1 truncate">{area.title}</span>
+                                      <Icon
+                                        name="arrowRight"
+                                        className="h-3.5 w-3.5 text-sky-400 opacity-0 transition-all -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                                      />
+                                    </a>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={link.href}>
                       <a
