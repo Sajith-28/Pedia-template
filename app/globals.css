@@ -22,6 +22,16 @@
   --color-canvas-soft: #f4f3ef;
   --color-surface: #ffffff;
 
+  /* ---------- Light Blue / Light Pink design tokens ---------- */
+  --color-pedia-blue-light: #EAF6FB;
+  --color-pedia-blue-mid: #DDF1F8;
+  --color-pedia-blue-soft: #BFE4F1;
+  --color-pedia-pink-light: #FCECF3;
+  --color-pedia-pink-mid: #F9E1EC;
+  --color-pedia-pink-soft: #F3C8D9;
+  --color-pedia-text: #183B4A;
+  --color-pedia-text-secondary: #536770;
+
   /* ---------- Ink ---------- */
   --color-ink: #13202a;
   --color-ink-muted: #55666f;
@@ -101,6 +111,8 @@
   --animate-wiggle: wiggle 2.5s ease-in-out infinite;
   --animate-sway: sway 5s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-hero-fade-in: hero-fade-in 1s var(--ease-gentle) both;
+  --animate-hero-fade-out: hero-fade-out 1s var(--ease-gentle) both;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
@@ -230,6 +242,16 @@
   50% {
     background-position: 100% 50%;
   }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hero-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 /* =========================================================================

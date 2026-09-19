@@ -4,27 +4,25 @@ import { useState } from "react";
 import { contact, quickEnquiryMessage, whatsappUrl } from "@/data/contact";
 import { doctor } from "@/data/doctor";
 import { Icon } from "@/components/ui/Icons";
-import { TeddyBear } from "@/components/ui/PediatricDecorations";
 
 /**
- * Topics drawn from the client-approved areas of expertise. The labels are
- * on-site UI; the `text` is what gets sent, and stays plain — no emoji.
+ * Topics drawn from the client-approved areas of expertise with friendly emojis.
  */
 const quickPrompts = [
   {
     label: "Book a consultation",
     icon: "calendar" as const,
-    text: "Hello Dr. Ushapriya, I would like to book a consultation for my child.",
+    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to book a consultation for my child. 🩺👶",
   },
   {
     label: "Newborn care",
     icon: "cradle" as const,
-    text: "Hello Dr. Ushapriya, I would like to enquire about newborn care for my baby.",
+    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to enquire about newborn care for my baby. 🍼👶",
   },
   {
     label: "Growth & development",
     icon: "growth" as const,
-    text: "Hello Dr. Ushapriya, I would like to consult regarding my child's growth and development.",
+    text: "Hello Dr. Ushapriya 👩‍⚕️, I would like to consult regarding my child's growth and development. 🌱📈",
   },
 ];
 
@@ -70,9 +68,8 @@ export function FloatingContact() {
                 <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-[#25D366] ring-2 ring-surface" />
               </div>
               <div>
-                <p className="flex items-center gap-1.5 font-display text-[0.9375rem] font-bold text-ink">
+                <p className="font-display text-[0.9375rem] font-bold text-ink">
                   {doctor.shortName}
-                  <TeddyBear className="h-3.5 w-3.5" />
                 </p>
                 <p className="text-[0.75rem] text-ink-soft">Appointment enquiries</p>
               </div>

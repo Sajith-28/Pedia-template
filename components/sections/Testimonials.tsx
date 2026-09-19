@@ -89,11 +89,11 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-title"
-      className="relative overflow-hidden bg-canvas-soft py-24 sm:py-28 lg:py-36"
+      className="relative overflow-hidden bg-[var(--color-pedia-blue-light,#EAF6FB)] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="animate-drift-b absolute -left-[8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,var(--color-lilac-100)_0%,transparent_65%)] opacity-45" />
-        <div className="animate-drift-a absolute -right-[8%] bottom-[6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-mint-100)_0%,transparent_65%)] opacity-45" />
+        <div className="animate-drift-b absolute -left-[8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-a absolute -right-[8%] bottom-[6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
       </div>
 
       <Container className="relative">

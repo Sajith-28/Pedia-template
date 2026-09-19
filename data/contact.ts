@@ -13,6 +13,7 @@
  * number is not configured, rather than opening a broken wa.me link.
  */
 export const APPOINTMENT_NUMBER = "917708031169";
+export const DOCTOR_APPOINTMENT_NUMBER = APPOINTMENT_NUMBER;
 
 /** "919876543210" -> "+91 98765 43210". Falls back to a plain "+digits". */
 function formatNumber(digits: string): string {
@@ -42,9 +43,9 @@ export function whatsappUrl(message: string): string {
   return `https://wa.me/${contact.number}?text=${encodeURIComponent(message)}`;
 }
 
-/** Short greeting for the "just chat" entry points. Plain text, no emoji. */
+/** Short greeting for the "just chat" entry points with professional emoji. */
 export const quickEnquiryMessage =
-  "Hello Dr. Ushapriya, I would like to enquire about a consultation for my child.";
+  "Hello Dr. Ushapriya 👩⚕️, I would like to enquire about a consultation for my child.";
 
 /**
  * Clinic location, as confirmed by the client.

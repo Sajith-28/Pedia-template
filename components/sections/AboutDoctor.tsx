@@ -47,14 +47,16 @@ export function AboutDoctor() {
             </Reveal>
 
             <Reveal delay={200}>
-              <dl className="mt-12 border-t border-line">
-                {doctor.credentials.map((row) => (
+              <dl className="mt-12 rounded-2xl bg-[var(--color-pedia-blue-light,#EAF6FB)] p-6 sm:p-8 border border-sky-100">
+                {doctor.credentials.map((row, idx) => (
                   <div
                     key={row.label}
-                    className="flex flex-col gap-1.5 border-b border-line py-5 sm:flex-row sm:items-baseline sm:gap-8"
+                    className={`flex flex-col gap-1.5 py-4 sm:flex-row sm:items-baseline sm:gap-8 ${
+                      idx !== doctor.credentials.length - 1 ? "border-b border-sky-200/50" : ""
+                    }`}
                   >
-                    <dt className="text-eyebrow shrink-0 text-ink-soft sm:w-52">{row.label}</dt>
-                    <dd className="text-[0.9375rem] leading-relaxed text-ink sm:text-base">
+                    <dt className="text-eyebrow shrink-0 text-[#536770] sm:w-52">{row.label}</dt>
+                    <dd className="text-[0.9375rem] font-medium leading-relaxed text-[#183B4A] sm:text-base">
                       {row.value}
                     </dd>
                   </div>
@@ -63,13 +65,13 @@ export function AboutDoctor() {
             </Reveal>
 
             <Reveal delay={260}>
-              <div className="mt-11">
-                <h3 className="text-eyebrow text-ink-soft">Areas of interest</h3>
-                <ul className="mt-5 flex flex-wrap gap-2.5">
+              <div className="mt-10">
+                <h3 className="text-eyebrow text-[#536770]">Areas of interest</h3>
+                <ul className="mt-4 flex flex-wrap gap-2.5">
                   {doctor.interests.map((interest) => (
                     <li
                       key={interest}
-                      className="rounded-full bg-brand-50 px-4 py-2 text-[0.8125rem] font-medium text-brand-800 ring-1 ring-brand-100"
+                      className="rounded-full bg-white px-4 py-2 text-[0.8125rem] font-medium text-[#183B4A] border border-sky-200 shadow-sm transition-all hover:bg-[var(--color-pedia-pink-light,#FCECF3)] hover:border-rose-200"
                     >
                       {interest}
                     </li>

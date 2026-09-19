@@ -16,10 +16,10 @@ export function Expertise() {
       aria-labelledby="expertise-title"
       className="relative overflow-hidden bg-canvas-soft py-24 sm:py-28 lg:py-36"
     >
-      {/* Slow-drifting washes keep the section from reading as a flat slab. */}
+      {/* Soft pediatric atmospheric radial washes */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="animate-drift-a absolute -left-[12%] top-[8%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-coral-100)_0%,transparent_65%)] opacity-45" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[4%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-brand-100)_0%,transparent_65%)] opacity-55" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-light,#EAF6FB)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[5%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-65" />
       </div>
 
       <Container className="relative">
@@ -47,8 +47,8 @@ export function Expertise() {
                   href={`/expertise/${area.slug}`}
                   aria-label={`${area.title} — read more`}
                   className={cx(
-                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-surface ring-1 ring-line",
-                    "transition-[transform,box-shadow] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift",
+                    "group relative flex h-full flex-col overflow-hidden rounded-panel bg-surface border border-[var(--color-pedia-blue-soft,#BFE4F1)] shadow-sm",
+                    "transition-[transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-2 hover:shadow-lift hover:border-[var(--color-pedia-pink-soft,#F3C8D9)]",
                   )}
                 >
                   {/* Hover ring in the card's own accent. */}

@@ -8,7 +8,6 @@ import { Field, borderFor, fieldControl, fieldHeight } from "@/components/ui/Fie
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TeddyBear } from "@/components/ui/PediatricDecorations";
 import { cx } from "@/lib/utils";
 
 type FormValues = {
@@ -64,31 +63,31 @@ function validate(values: FormValues): Partial<Record<FieldName, string>> {
 }
 
 /**
- * Builds the WhatsApp message. Plain text throughout — no emoji. Optional
- * lines are dropped when blank so the doctor never receives a half-empty
- * enquiry. The caller percent-encodes it.
+ * Builds the WhatsApp message. Formatted cleanly with friendly professional
+ * medical emoji per client request. Optional fields are omitted when empty.
  */
 function buildMessage(values: FormValues): string {
   const lines = [
-    "Hello Dr. Ushapriya,",
+    "Hello Dr. Ushapriya 👩‍⚕️,",
     "",
-    "I would like to book a consultation for my child.",
+    "I would like to book a consultation for my child. 🩺👶",
     "",
-    `Parent/Guardian Name: ${values.parentName.trim()}`,
-    `Child's Name: ${values.childName.trim()}`,
-    `Child's Age: ${values.childAge.trim()}`,
-    `Contact Number: ${values.phone.trim()}`,
-    `Reason for Visit: ${values.reason.trim()}`,
+    "📋 Appointment Details:",
+    `• Parent/Guardian Name: ${values.parentName.trim()}`,
+    `• Child's Name: ${values.childName.trim()}`,
+    `• Child's Age: ${values.childAge.trim()}`,
+    `• Contact Number: ${values.phone.trim()}`,
+    `• Reason for Visit: ${values.reason.trim()}`,
   ];
 
-  if (values.preferredDate) lines.push(`Preferred Date: ${values.preferredDate}`);
-  if (values.preferredTime) lines.push(`Preferred Time: ${values.preferredTime}`);
+  if (values.preferredDate) lines.push(`• Preferred Date: ${values.preferredDate}`);
+  if (values.preferredTime) lines.push(`• Preferred Time: ${values.preferredTime}`);
 
   if (values.note.trim()) {
-    lines.push("", "Additional Note:", values.note.trim());
+    lines.push("", "📝 Additional Note:", values.note.trim());
   }
 
-  lines.push("", "Please let me know the available appointment slot.", "", "Thank you.");
+  lines.push("", "Please let me know the available appointment slot.", "", "Thank you! 🙏");
 
   return lines.join("\n");
 }
@@ -142,11 +141,11 @@ export function Appointment() {
     <section
       id="appointment"
       aria-labelledby="appointment-title"
-      className="relative overflow-hidden bg-canvas-soft py-24 sm:py-28 lg:py-36"
+      className="relative overflow-hidden bg-[var(--color-pedia-blue-light,#EAF6FB)] py-24 sm:py-28 lg:py-36 border-t border-sky-100"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-brand-100)_0%,transparent_65%)] opacity-40" />
-        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-coral-100)_0%,transparent_65%)] opacity-40" />
+        <div className="animate-drift-a absolute -left-[10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-pink-light,#FCECF3)_0%,transparent_65%)] opacity-70" />
+        <div className="animate-drift-b absolute -right-[10%] bottom-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-pedia-blue-soft,#BFE4F1)_0%,transparent_65%)] opacity-70" />
       </div>
 
       <Container className="relative">
@@ -161,12 +160,12 @@ export function Appointment() {
         <div className="mt-14 grid gap-6 lg:mt-18 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-8">
           {/* ---------- Enquiry form ---------- */}
           <Reveal distance={20}>
-            <div className="relative overflow-hidden rounded-panel bg-surface p-6 shadow-soft ring-1 ring-line sm:p-9 lg:p-10">
-              <div aria-hidden="true" className="absolute right-4 top-4 hidden opacity-40 sm:block">
-                <TeddyBear className="h-10 w-10 animate-float-bob" />
+            <div className="relative overflow-hidden rounded-panel bg-surface p-6 shadow-soft border border-[var(--color-pedia-blue-soft,#BFE4F1)] sm:p-9 lg:p-10">
+              <div aria-hidden="true" className="absolute right-6 top-6 hidden sm:block">
+                <div className="h-10 w-10 rounded-full bg-[var(--color-pedia-pink-mid,#F9E1EC)] opacity-60 blur-sm" />
               </div>
 
-              <h3 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-ink sm:text-[1.625rem]">
+              <h3 className="font-display text-[1.375rem] font-bold leading-snug tracking-[-0.02em] text-[#183B4A] sm:text-[1.625rem]">
                 Appointment enquiry
               </h3>
               <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.7] text-ink-muted">

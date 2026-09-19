@@ -2,8 +2,8 @@ import { cx } from "@/lib/utils";
 import { doctor } from "@/data/doctor";
 
 /**
- * Brand mark: two leaves opening from a bud — a "bloom" read at small sizes,
- * botanical rather than childish.
+ * Brand mark: two gentle leaves opening from a bud — botanical and welcoming,
+ * medical rather than childish.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (

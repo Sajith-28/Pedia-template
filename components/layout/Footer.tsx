@@ -13,7 +13,7 @@ export function Footer({ linkPrefix = "" }: { linkPrefix?: string }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-950 text-white/70">
+    <footer className="bg-[#113244] text-white/75 border-t border-sky-900/40">
       <Container>
         <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-14 lg:py-20">
           {/* ---------- Identity ---------- */}

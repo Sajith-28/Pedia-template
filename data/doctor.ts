@@ -82,4 +82,31 @@ export const doctor = {
       },
     ],
   },
+
+  /**
+   * Client-supplied banner photography pairs for the responsive carousel.
+   * Auto-cycles smoothly between desktop and mobile-optimized assets.
+   */
+  banners: [
+    {
+      id: "slide-1",
+      desktopSrc: "/images/banners/banner-1-desktop.png",
+      mobileSrc: "/images/banners/banner-1-mobile.jpeg",
+      alt: "Dr. Ushapriya Sudhakar - Paediatrician & Neonatologist in Chennai with newborn and child healthcare highlights",
+      badge: "Paediatrician & Neonatologist • Chennai",
+      title: "Compassionate care for newborns, children & adolescents.",
+      subtitle:
+        "Evidence-based, personalised paediatric care and neonatal support for your child's healthy growth in Chennai.",
+    },
+    {
+      id: "slide-2",
+      desktopSrc: "/images/banners/banner-2-desktop.jpeg",
+      mobileSrc: "/images/banners/banner-2-mobile.png",
+      alt: "Dr. Ushapriya Sudhakar - Comprehensive Paediatric & Neonatology Consultation in Chennai",
+      badge: "Specialised Child Healthcare • Chennai",
+      title: "From tender newborn care to thriving adolescent health.",
+      subtitle:
+        "Dedicated to keeping parents informed, reassured, and confident at every step of their child's medical journey.",
+    },
+  ],
 } as const;

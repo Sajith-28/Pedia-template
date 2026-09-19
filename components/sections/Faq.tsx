@@ -47,11 +47,10 @@ export function Faq() {
             </Reveal>
           </div>
 
-          {/* ---------- Accordion ---------- */}
-          <ul className="border-t border-line">
+          {/* ---------- Accordion Cards ---------- */}
+          <ul className="space-y-4">
             {faqs.map((faq, index) => {
               const open = openIndex === index;
-              const accent = accents[faqAccents[index % faqAccents.length]];
               const buttonId = `${uid}-q-${index}`;
               const panelId = `${uid}-a-${index}`;
 
@@ -59,53 +58,61 @@ export function Faq() {
                 <Reveal
                   key={faq.question}
                   as="li"
-                  delay={index * 70}
-                  distance={16}
-                  className="border-b border-line"
+                  delay={index * 60}
+                  distance={14}
                 >
-                  <h3>
-                    <button
-                      type="button"
-                      id={buttonId}
-                      aria-expanded={open}
-                      aria-controls={panelId}
-                      onClick={() => setOpenIndex(open ? null : index)}
-                      className="group flex w-full items-start justify-between gap-6 py-6 text-left"
-                    >
-                      <span
-                        className={cx(
-                          "font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.015em] transition-colors duration-300 ease-premium sm:text-[1.125rem]",
-                          open ? accent.text : "text-ink group-hover:text-brand-700",
-                        )}
-                      >
-                        {faq.question}
-                      </span>
-
-                      <span
-                        aria-hidden="true"
-                        className={cx(
-                          "mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full transition-[background-color,color,transform] duration-500 ease-premium",
-                          open
-                            ? cx("rotate-180", accent.solid)
-                            : "bg-brand-50 text-brand-700 group-hover:bg-brand-100",
-                        )}
-                      >
-                        <Icon name="chevronDown" className="h-4 w-4" />
-                      </span>
-                    </button>
-                  </h3>
-
                   <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={buttonId}
-                    className="accordion-panel"
-                    data-open={open}
+                    className={cx(
+                      "overflow-hidden rounded-2xl bg-white border p-5 sm:p-6 transition-all duration-300 ease-premium shadow-sm",
+                      open
+                        ? "border-[var(--color-pedia-pink-soft,#F3C8D9)] ring-2 ring-[var(--color-pedia-pink-light,#FCECF3)]"
+                        : "border-sky-100 hover:border-sky-200",
+                    )}
                   >
-                    <div className="accordion-panel-inner">
-                      <p className="max-w-[62ch] pb-7 pr-10 text-[0.9375rem] leading-[1.78] text-ink-muted sm:text-[1rem]">
-                        {faq.answer}
-                      </p>
+                    <h3>
+                      <button
+                        type="button"
+                        id={buttonId}
+                        aria-expanded={open}
+                        aria-controls={panelId}
+                        onClick={() => setOpenIndex(open ? null : index)}
+                        className="group flex w-full items-start justify-between gap-6 text-left"
+                      >
+                        <span
+                          className={cx(
+                            "font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.015em] transition-colors duration-300 ease-premium sm:text-[1.125rem]",
+                            open ? "text-[#183B4A]" : "text-[#183B4A] group-hover:text-teal-700",
+                          )}
+                        >
+                          {faq.question}
+                        </span>
+
+                        <span
+                          aria-hidden="true"
+                          className={cx(
+                            "mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full transition-[background-color,color,transform] duration-300 ease-premium",
+                            open
+                              ? "rotate-180 bg-[var(--color-pedia-pink-soft,#F3C8D9)] text-rose-800"
+                              : "bg-[var(--color-pedia-blue-light,#EAF6FB)] text-sky-700 group-hover:bg-sky-100",
+                          )}
+                        >
+                          <Icon name="chevronDown" className="h-4 w-4" />
+                        </span>
+                      </button>
+                    </h3>
+
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      className="accordion-panel"
+                      data-open={open}
+                    >
+                      <div className="accordion-panel-inner pt-4">
+                        <p className="max-w-[62ch] text-[0.9375rem] leading-[1.78] text-[#536770] sm:text-[1rem]">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Reveal>

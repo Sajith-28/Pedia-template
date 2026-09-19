@@ -2,52 +2,59 @@ import { credentialHighlights } from "@/data/credentials";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
-import { accents } from "@/lib/accents";
 import { cx } from "@/lib/utils";
 
 export function Credentials() {
   return (
-    <section aria-label="Qualifications and focus" className="relative border-y border-line bg-canvas">
+    <section
+      aria-label="Qualifications and clinical highlights"
+      className="relative border-y border-sky-100 bg-[#FAF9F6] py-8 sm:py-12"
+    >
       <Container>
-        <dl className="grid grid-cols-2 lg:grid-cols-4">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {credentialHighlights.map((item, index) => {
-            const accent = accents[item.accent];
+            // Alternating soft light blue and light pink backgrounds
+            const isBlue = index % 2 === 0;
+            const bgClass = isBlue
+              ? "bg-[var(--color-pedia-blue-light,#EAF6FB)] border-sky-100 hover:border-sky-200"
+              : "bg-[var(--color-pedia-pink-light,#FCECF3)] border-rose-100 hover:border-rose-200";
+            const iconBg = isBlue
+              ? "bg-sky-100 text-sky-700"
+              : "bg-rose-100 text-rose-700";
+
             return (
               <Reveal
                 key={item.value}
-                delay={index * 90}
-                distance={16}
-                className={cx(
-                  // Flex lives here so <dt>/<dd> stay direct children of the
-                  // wrapper <div> — a <dl> allows no deeper nesting.
-                  "group relative flex flex-col-reverse gap-3 border-line px-1 py-9 sm:px-4 sm:py-11 lg:px-8 lg:py-14",
-                  index % 2 === 1 && "border-l pl-5 sm:pl-8",
-                  index % 2 === 0 && "lg:border-l",
-                  index === 0 && "lg:border-l-0 lg:pl-0",
-                  index < 2 && "border-b lg:border-b-0",
-                )}
+                delay={index * 80}
+                distance={14}
+                className="h-full"
               >
-                <dt className="text-[0.8125rem] leading-snug text-ink-muted sm:text-sm">
-                  {item.label}
-                </dt>
-                <dd>
-                  <span
-                    className={cx(
-                      "mb-4 grid h-10 w-10 place-items-center rounded-xl transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:rotate-3",
-                      accent.chip,
-                    )}
-                  >
-                    <Icon name={item.icon} className="h-[1.15rem] w-[1.15rem]" />
-                  </span>
-                  <span
-                    className={cx(
-                      "block font-display text-[1.125rem] font-bold leading-tight tracking-[-0.02em] sm:text-[1.3rem] lg:text-[1.45rem]",
-                      accent.text,
-                    )}
-                  >
-                    {item.value}
-                  </span>
-                </dd>
+                <div
+                  className={cx(
+                    "group relative flex flex-col justify-between h-full rounded-2xl border p-5 sm:p-6 transition-all duration-300 ease-premium hover:-translate-y-1 hover:shadow-soft",
+                    bgClass,
+                  )}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={cx(
+                        "grid h-10 w-10 place-items-center rounded-xl transition-transform duration-300 ease-premium group-hover:scale-110",
+                        iconBg,
+                      )}
+                    >
+                      <Icon name={item.icon} className="h-5 w-5" />
+                    </span>
+                    <dt className="text-[0.8125rem] font-medium leading-snug text-slate-600">
+                      {item.label}
+                    </dt>
+                  </div>
+
+                  <dd className="mt-4">
+                    <span className="block font-display text-[1.2rem] sm:text-[1.3rem] font-bold leading-tight tracking-[-0.015em] text-[#183B4A]">
+                      {item.value}
+                    </span>
+                  </dd>
+                </div>
               </Reveal>
             );
           })}
