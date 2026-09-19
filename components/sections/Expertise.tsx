@@ -64,7 +64,7 @@ export function Expertise() {
           className="mx-auto max-w-3xl"
         />
 
-        <ul className="mx-auto mt-12 grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:mt-16 lg:gap-6">
+        <ul className="mx-auto mt-12 grid max-w-7xl gap-4 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:gap-6">
           {expertiseAreas.map((area, index) => {
             const accent = accents[area.accent];
             return (
@@ -100,7 +100,7 @@ export function Expertise() {
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL={area.image.blurDataURL}
-                      sizes="(min-width: 1280px) 24rem, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 95vw"
+                      sizes="(min-width: 1280px) 24rem, (min-width: 640px) 30vw, 95vw"
                       className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.06]"
                     />
                     <span
@@ -109,32 +109,32 @@ export function Expertise() {
                     />
                     <span
                       className={cx(
-                        "absolute left-3.5 top-3.5 sm:left-4 sm:top-4 grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-xl shadow-soft backdrop-blur-sm",
+                        "absolute left-3 top-3 sm:left-3.5 sm:top-3.5 lg:left-4 lg:top-4 grid h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 place-items-center rounded-lg sm:rounded-xl shadow-soft backdrop-blur-sm",
                         "transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:rotate-6",
                         accent.chip,
                       )}
                     >
-                      <Icon name={area.icon} className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" />
+                      <Icon name={area.icon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </span>
-                    <span className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 text-honey-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <TwinklingStar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <span className="absolute right-3 top-3 sm:right-3.5 sm:top-3.5 lg:right-4 lg:top-4 text-honey-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <TwinklingStar className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                     </span>
                   </div>
 
-                  <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-5">
+                  <div className="flex flex-1 flex-col p-3.5 sm:p-4 lg:p-5">
                     {/* Grows so the CTA stays on the card's baseline whatever
                         the description length. */}
                     <div className="flex-1">
-                      <h3 className="font-display text-[1.05rem] sm:text-[1.125rem] font-bold leading-snug tracking-[-0.015em] text-ink">
+                      <h3 className="font-display text-[0.98rem] sm:text-[1.05rem] lg:text-[1.125rem] font-bold leading-snug tracking-[-0.015em] text-ink">
                         {area.title}
                       </h3>
-                      <p className="mt-2 text-[0.84rem] sm:text-[0.875rem] leading-[1.65] text-ink-muted">
+                      <p className="mt-2 text-[0.8rem] sm:text-[0.84rem] lg:text-[0.875rem] leading-[1.62] text-ink-muted">
                         {area.description}
                       </p>
                     </div>
 
-                    <div className="mt-4 flex items-center justify-between gap-3 border-t border-line/60 pt-3.5 sm:pt-4">
-                      <span className="inline-flex items-center gap-1.5 text-[0.84rem] sm:text-[0.875rem] font-semibold text-brand-700 transition-colors duration-300 ease-premium group-hover:text-brand-800">
+                    <div className="mt-3.5 sm:mt-4 flex items-center justify-between gap-2 border-t border-line/60 pt-3 sm:pt-3.5">
+                      <span className="inline-flex items-center gap-1.5 text-[0.8rem] sm:text-[0.84rem] lg:text-[0.875rem] font-semibold text-brand-700 transition-colors duration-300 ease-premium group-hover:text-brand-800">
                         Read More
                         <Icon
                           name="arrowRight"
